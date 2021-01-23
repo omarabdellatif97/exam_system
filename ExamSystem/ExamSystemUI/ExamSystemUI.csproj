@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ExamSystem.DAL\ExamSystem.DAL.csproj" />
+    <ProjectReference Include="..\ExamSystem.Models\ExamSystem.Models.csproj" />
+  </ItemGroup>
+
 </Project>
