@@ -2115,17 +2115,17 @@
           "bin/placeholder/ExamSystem.DAL.dll": {}
         }
       },
-      "ExamSystem.Models/1.0.0": {
+      "ExamSystem.Systems/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "ExamSystem.DAL": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/ExamSystem.Models.dll": {}
+          "bin/placeholder/ExamSystem.Systems.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ExamSystem.Models.dll": {}
+          "bin/placeholder/ExamSystem.Systems.dll": {}
         }
       }
     }
@@ -7288,16 +7288,16 @@
       "path": "../ExamSystem.DAL/ExamSystem.DAL.csproj",
       "msbuildProject": "../ExamSystem.DAL/ExamSystem.DAL.csproj"
     },
-    "ExamSystem.Models/1.0.0": {
+    "ExamSystem.Systems/1.0.0": {
       "type": "project",
-      "path": "../ExamSystem.Models/ExamSystem.Models.csproj",
-      "msbuildProject": "../ExamSystem.Models/ExamSystem.Models.csproj"
+      "path": "../ExamSystem.Models/ExamSystem.Systems.csproj",
+      "msbuildProject": "../ExamSystem.Models/ExamSystem.Systems.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ExamSystem.DAL >= 1.0.0",
-      "ExamSystem.Models >= 1.0.0"
+      "ExamSystem.Systems >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -7330,8 +7330,8 @@
             "D:\\Projects\\C#-Projects\\Exam_System\\ExamSystem\\ExamSystem.DAL\\ExamSystem.DAL.csproj": {
               "projectPath": "D:\\Projects\\C#-Projects\\Exam_System\\ExamSystem\\ExamSystem.DAL\\ExamSystem.DAL.csproj"
             },
-            "D:\\Projects\\C#-Projects\\Exam_System\\ExamSystem\\ExamSystem.Models\\ExamSystem.Models.csproj": {
-              "projectPath": "D:\\Projects\\C#-Projects\\Exam_System\\ExamSystem\\ExamSystem.Models\\ExamSystem.Models.csproj"
+            "D:\\Projects\\C#-Projects\\Exam_System\\ExamSystem\\ExamSystem.Models\\ExamSystem.Systems.csproj": {
+              "projectPath": "D:\\Projects\\C#-Projects\\Exam_System\\ExamSystem\\ExamSystem.Models\\ExamSystem.Systems.csproj"
             }
           }
         }

@@ -9,7 +9,7 @@
       "ExamSystemUI/1.0.0": {
         "dependencies": {
           "ExamSystem.DAL": "1.0.0",
-          "ExamSystem.Models": "1.0.0"
+          "ExamSystem.Systems": "1.0.0"
         },
         "runtime": {
           "ExamSystemUI.dll": {}
@@ -1329,12 +1329,12 @@
           "ExamSystem.DAL.dll": {}
         }
       },
-      "ExamSystem.Models/1.0.0": {
+      "ExamSystem.Systems/1.0.0": {
         "dependencies": {
           "ExamSystem.DAL": "1.0.0"
         },
         "runtime": {
-          "ExamSystem.Models.dll": {}
+          "ExamSystem.Systems.dll": {}
         }
       }
     }
@@ -2246,7 +2246,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "ExamSystem.Models/1.0.0": {
+    "ExamSystem.Systems/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

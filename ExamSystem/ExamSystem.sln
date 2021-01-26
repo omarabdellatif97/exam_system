@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystemUI", "ExamSystemUI\ExamSystemUI.csproj", "{C8068541-6EA2-408C-B3A7-614D4C6AFE79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamSystemUI", "ExamSystemUI\ExamSystemUI.csproj", "{C8068541-6EA2-408C-B3A7-614D4C6AFE79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.Models", "ExamSystem.Models\ExamSystem.Models.csproj", "{527CC0C4-11C0-4282-A011-7F66A7C2F240}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamSystem.Systems", "ExamSystem.Models\ExamSystem.Systems.csproj", "{527CC0C4-11C0-4282-A011-7F66A7C2F240}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamSystem.DAL", "ExamSystem.DAL\ExamSystem.DAL.csproj", "{EAD9B166-75F9-4659-AEC8-2601057025F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamSystem.DAL", "ExamSystem.DAL\ExamSystem.DAL.csproj", "{EAD9B166-75F9-4659-AEC8-2601057025F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

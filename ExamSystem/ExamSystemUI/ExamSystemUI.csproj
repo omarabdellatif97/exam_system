@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExamSystem.DAL\ExamSystem.DAL.csproj" />
-    <ProjectReference Include="..\ExamSystem.Models\ExamSystem.Models.csproj" />
+    <ProjectReference Include="..\ExamSystem.Models\ExamSystem.Systems.csproj" />
   </ItemGroup>
 
 </Project>

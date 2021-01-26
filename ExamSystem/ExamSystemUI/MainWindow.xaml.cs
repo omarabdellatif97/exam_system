@@ -24,5 +24,13 @@ namespace ExamSystemUI
         {
             InitializeComponent();
         }
+
+
+        private LoginSystem loginsys;
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            loginsys.Check(txtuse.Text, )
+        }
     }
 }

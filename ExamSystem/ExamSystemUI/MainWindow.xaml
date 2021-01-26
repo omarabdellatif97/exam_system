@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:ExamSystemUI"
         mc:Ignorable="d"
         Title="Login To Exam System" Height="450" Width="800" WindowState="Maximized">
-    <DockPanel d:IsLocked="True">
-        <Border Margin="10,10,10,10" BorderThickness="5,5,5,5" BorderBrush="Black" CornerRadius="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="520" MinHeight="320" d:IsLocked="True">
-            <Grid Margin="10,10,10,10" d:IsLocked="True">
+    <DockPanel>
+        <Border Margin="10,10,10,10" BorderThickness="5,5,5,5" BorderBrush="Black" CornerRadius="10,10,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="520" MinHeight="320">
+            <Grid Margin="10,10,10,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -19,12 +19,12 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="167.205"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="button" Grid.Row="3" Content="Login" FontSize="28" Padding="10,5,10,5" Margin="5,10,5,10" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150" d:IsLocked="True"/>
-                <TextBlock x:Name="textBlock" Text="Login To Exam System" TextWrapping="Wrap" Grid.ColumnSpan="2" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Padding="5,5,5,5" d:IsLocked="True"/>
-                <TextBlock x:Name="textBlock1" Text="Username" TextWrapping="Wrap" Grid.Row="1" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5,5,5,5" Margin="5,5,5,5" d:IsLocked="True"/>
-                <TextBlock x:Name="textBlock2" Text="Password" TextWrapping="Wrap" Grid.Row="2" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5,5,5,5" Margin="5,5,5,5" d:IsLocked="True"/>
-                <TextBox x:Name="textBox" TextWrapping="NoWrap" Grid.Column="1" FontSize="25" VerticalContentAlignment="Center" Grid.Row="1" Padding="5,5,5,5" Margin="5,5,5,5" d:IsLocked="True"/>
-                <PasswordBox x:Name="passwordBox" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" Padding="5,5,5,5" FontSize="25" d:IsLocked="True"/>
+                <Button x:Name="button" Click="button_Click" Grid.Row="3" Content="Login" FontSize="28" Padding="10,5,10,5" Margin="5,10,5,10" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150"/>
+                <TextBlock x:Name="textBlock" Text="Login To Exam System" TextWrapping="Wrap" Grid.ColumnSpan="2" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,5,5,5" Padding="5,5,5,5"/>
+                <TextBlock x:Name="textBlock1" Text="Username" TextWrapping="Wrap" Grid.Row="1" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5,5,5,5" Margin="5,5,5,5"/>
+                <TextBlock x:Name="textBlock2" Text="Password" TextWrapping="Wrap" Grid.Row="2" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5,5,5,5" Margin="5,5,5,5"/>
+                <TextBox x:Name="textBox" TextWrapping="NoWrap" Grid.Column="1" FontSize="25" VerticalContentAlignment="Center" Grid.Row="1" Padding="5,5,5,5" Margin="5,5,5,5"/>
+                <PasswordBox x:Name="passwordBox" Grid.Row="2" Grid.Column="1" Margin="5,5,5,5" Padding="5,5,5,5" FontSize="25"/>
 
             </Grid>
         </Border>

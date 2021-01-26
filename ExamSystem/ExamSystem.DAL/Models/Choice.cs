@@ -19,5 +19,9 @@ namespace ExamSystem.DAL.Models
 
         public virtual ICollection<ChoQue> ChoQues { get; set; }
         public virtual ICollection<QueInsCho> QueInsChos { get; set; }
+
+
+        public bool IsTrue { get => State == 1; }
+        public bool IsFalse { get => State == 0; }
     }
 }

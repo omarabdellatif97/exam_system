@@ -57,7 +57,7 @@ D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp
 D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp3.1\ExamSystem.DAL.dll
-D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp3.1\ExamSystem.Models.dll
 D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp3.1\ExamSystem.DAL.pdb
-D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp3.1\ExamSystem.Models.pdb
 D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\obj\Debug\netcoreapp3.1\ExamSystemUI.csproj.CopyComplete
+D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp3.1\ExamSystem.Systems.dll
+D:\Projects\C#-Projects\Exam_System\ExamSystem\ExamSystemUI\bin\Debug\netcoreapp3.1\ExamSystem.Systems.pdb
