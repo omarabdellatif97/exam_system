@@ -9,5 +9,6 @@ namespace ExamSystem.DAL
 {
     public interface IStudentRepository: IRepository<Student>
     {
+        public Student authenticate(string email, string password);
     }
 }

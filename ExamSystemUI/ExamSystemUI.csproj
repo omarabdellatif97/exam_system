@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExamSystem.DAL\ExamSystem.DAL.csproj" />
     <ProjectReference Include="..\ExamSystem.Systems\ExamSystem.Systems.csproj" />
   </ItemGroup>
 
