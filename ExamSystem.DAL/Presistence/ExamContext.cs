@@ -1,4 +1,5 @@
 ﻿using System;
+using ExamSystem.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 

@@ -26,11 +26,11 @@ namespace ExamSystemUI
         }
 
 
-        private LoginSystem loginsys;
+
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            loginsys.Check(txtuse.Text, )
+            //loginsys.Check(txtuse.Text, )
         }
     }
 }
