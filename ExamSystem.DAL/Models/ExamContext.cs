@@ -1,11 +1,10 @@
 ﻿using System;
-using ExamSystem.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace ExamSystem.DAL
+namespace ExamSystem.DAL.Models
 {
     public partial class ExamContext : DbContext
     {
@@ -37,7 +36,7 @@ namespace ExamSystem.DAL
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=tcp:examdatabaseproject.database.windows.net,1433;Initial Catalog=Exam;Persist Security Info=False;User ID=ITI_Exam;Password=db_project2021;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("server=examdatabaseproject.database.windows.net;Database=Exam;User Id=ITI_Exam;Password=db_project2021;");
             }
         }
 
@@ -100,6 +99,12 @@ namespace ExamSystem.DAL
                 entity.Property(e => e.DateEnd)
                     .HasColumnType("date")
                     .HasColumnName("Date_End");
+
+                entity.Property(e => e.ExamDuration).HasColumnName("Exam_Duration");
+
+                entity.Property(e => e.NumMcq).HasColumnName("Num_MCQ");
+
+                entity.Property(e => e.NumTorf).HasColumnName("Num_TORF");
             });
 
             modelBuilder.Entity<Department>(entity =>

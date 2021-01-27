@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
-
+using ExamSystem.DAL.Models;
 
 namespace ExamSystem.DAL
 {

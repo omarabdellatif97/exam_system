@@ -17,6 +17,9 @@ namespace ExamSystem.DAL.Models
         public int CrsId { get; set; }
         public string CrsName { get; set; }
         public DateTime DateEnd { get; set; }
+        public TimeSpan? ExamDuration { get; set; }
+        public int? NumMcq { get; set; }
+        public int? NumTorf { get; set; }
 
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<InsCr> InsCrs { get; set; }

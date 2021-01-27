@@ -1,5 +1,7 @@
 ﻿
 
+using ExamSystem.DAL.Models;
+
 namespace ExamSystem.DAL
 {
     public class UnitOfWork : IUnitOfWork
