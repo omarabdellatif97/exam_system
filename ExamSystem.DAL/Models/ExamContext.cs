@@ -99,6 +99,12 @@ namespace ExamSystem.DAL.Models
                 entity.Property(e => e.DateEnd)
                     .HasColumnType("date")
                     .HasColumnName("Date_End");
+
+                entity.Property(e => e.ExamDuration).HasColumnName("Exam_Duration");
+
+                entity.Property(e => e.NumMcq).HasColumnName("Num_MCQ");
+
+                entity.Property(e => e.NumTorf).HasColumnName("Num_TORF");
             });
 
             modelBuilder.Entity<Department>(entity =>
