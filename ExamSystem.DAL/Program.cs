@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using ExamSystem.DAL.Models;
+using ExamSystem.DAL.Presistence;
 
 namespace ExamSystem.DAL
 {
@@ -12,16 +13,19 @@ namespace ExamSystem.DAL
         {
             using (var unitOfWork = new UnitOfWork(new ExamContext()))
             {
-                var courses = unitOfWork.Courses.GetAll();
-                var course = unitOfWork.Courses.GetAll().First();
-                var student = unitOfWork._Context.Students.First();
-                int examID = unitOfWork.Exams.generateExam(course, student, 5, 0, new TimeSpan(1, 0, 0));
-                var exams = unitOfWork.Exams.GetAll();
-                Console.WriteLine(examID);
-                foreach (var exam in exams)
-                {
-                    Console.WriteLine(exam.ExamId);
-                }
+
+                var student = unitOfWork.Students.authenticate("test@test.test", "12345678");
+                Console.WriteLine(student?.StId);
+                //var courses = unitOfWork.Courses.GetAll();
+                //var course = unitOfWork.Courses.GetAll().First();
+                //var student = unitOfWork._Context.Students.First();
+                //int examID = unitOfWork.Exams.generateExam(course, student, 5, 0, new TimeSpan(1, 0, 0));
+                //var exams = unitOfWork.Exams.GetAll();
+                //Console.WriteLine(examID);
+                //foreach (var exam in exams)
+                //{
+                //    Console.WriteLine(exam.ExamId);
+                //}
 
             }
         }

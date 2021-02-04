@@ -1,10 +1,11 @@
-﻿using ExamSystem.DAL.Models;
+﻿using ExamSystem.DAL.Core.Repositories;
+using ExamSystem.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace ExamSystem.DAL
+namespace ExamSystem.DAL.Presistence.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {

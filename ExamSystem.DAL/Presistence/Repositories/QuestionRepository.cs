@@ -1,11 +1,12 @@
-﻿using ExamSystem.DAL.Models;
+﻿using ExamSystem.DAL.Core.Repositories;
+using ExamSystem.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExamSystem.DAL
+namespace ExamSystem.DAL.Presistence.Repositories
 {
     class QuestionRepository : Repository<Question>, IQuestionRepository
     {

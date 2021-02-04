@@ -1,8 +1,11 @@
 ﻿
 
+using ExamSystem.DAL.Core;
+using ExamSystem.DAL.Core.Repositories;
 using ExamSystem.DAL.Models;
+using ExamSystem.DAL.Presistence.Repositories;
 
-namespace ExamSystem.DAL
+namespace ExamSystem.DAL.Presistence
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -16,15 +19,18 @@ namespace ExamSystem.DAL
             Courses = new CourseRepository(_context);
             Questions = new QuestionRepository(_context);
             Exams = new ExamRepository(_context);
+            Students = new StudentRepository(_context);
 
         }
 
+        public IInstructorRepository Instructors { get; private set; }
         public ICourseRepository Courses { get; private set; }
 
         public IQuestionRepository Questions { get; private set; }
 
         public IExamRepository Exams { get; private set; }
 
+        public IStudentRepository Students { get; private set; }
         public int Complete()
         {
             return _context.SaveChanges();

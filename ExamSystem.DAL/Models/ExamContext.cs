@@ -197,9 +197,10 @@ namespace ExamSystem.DAL.Models
 
                 entity.Property(e => e.InsHashedPwd)
                     .IsRequired()
-                    .HasMaxLength(200)
+                    .HasMaxLength(64)
                     .IsUnicode(false)
-                    .HasColumnName("Ins_Hashed_Pwd");
+                    .HasColumnName("Ins_Hashed_Pwd")
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.InsName)
                     .IsRequired()
@@ -330,9 +331,10 @@ namespace ExamSystem.DAL.Models
 
                 entity.Property(e => e.StHashedPwd)
                     .IsRequired()
-                    .HasMaxLength(200)
+                    .HasMaxLength(64)
                     .IsUnicode(false)
-                    .HasColumnName("St_Hashed_Pwd");
+                    .HasColumnName("St_Hashed_Pwd")
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.StName)
                     .IsRequired()

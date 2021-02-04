@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExamSystem.DAL
+namespace ExamSystem.DAL.Core.Repositories
 {
     public interface IExamRepository: IRepository<Exam>
     {
