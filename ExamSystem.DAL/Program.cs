@@ -15,7 +15,11 @@ namespace ExamSystem.DAL
             {
 
                 var student = unitOfWork.Students.authenticate("test@test.test", "12345678");
-                Console.WriteLine(student?.StId);
+                var courses = unitOfWork.Students.GetCourses(6);
+                foreach (var crs in courses)
+                {
+                    Console.WriteLine(crs.CrsName);
+                }
                 //var courses = unitOfWork.Courses.GetAll();
                 //var course = unitOfWork.Courses.GetAll().First();
                 //var student = unitOfWork._Context.Students.First();

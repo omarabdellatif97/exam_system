@@ -4,6 +4,8 @@ using System.Security.Cryptography;
 using System.Linq;
 using ExamSystem.DAL.Models;
 using ExamSystem.DAL.Core.Repositories;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExamSystem.DAL.Presistence.Repositories
 {
@@ -24,6 +26,13 @@ namespace ExamSystem.DAL.Presistence.Repositories
             string hashedPwd = BitConverter.ToString(bytes).Replace("-", "");
             Student student = ExamContext.Students.FirstOrDefault(S => S.StHashedPwd == hashedPwd && S.StEmail == email);
             return student;
+        }
+
+        public IEnumerable<Course> GetCourses(int id)
+        {
+            var CrsStList = Context.Students.Include("StCrs").First(S => S.StId == id).StCrs.ToList();
+            var CoursesList = Context.Courses.ToList();
+            return CoursesList.Join(CrsStList, C => C.CrsId, SC => SC.CrsId, (C, SC) => C).ToList();
         }
     }
 
