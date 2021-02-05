@@ -68,7 +68,7 @@ namespace ExamSystemUIWinforms
                 });
                 if (DateTime.Now >= sys.EndTime)
                 {
-                    EndExam();
+                    this.Close();
                 }
             };
 
