@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using ExamSystem.DAL;
 using ExamSystem.DAL.Models;
-
+using ExamSystem.DAL.Presistence;
 
 namespace ExamSystem.Systems
 {
     public class LoginSystem
     {
 
-        private UnitOfWork access;
+        private UnitOfWork context;
 
         // student or instructor
         public Student ValidateStudent(string user, string pass)

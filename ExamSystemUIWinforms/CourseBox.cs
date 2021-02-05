@@ -11,111 +11,77 @@ using System.Windows.Forms;
 
 namespace ExamSystemUIWinforms
 {
-    public partial class StudentForm : Form
+    public class CourseBox
     {
-        public StudentForm()
+
+        public TableLayoutPanel Parent { get => parent; }
+        public TableLayoutPanel parent;
+
+        public Button BtnStartExam => btnStartExam;
+
+        public Label LblCrsId => lblCrsId;
+
+        public Label LblCrsStatus => lblCrsStatus;
+
+        public Label LblCrsName => lblCrsName;
+
+        public Label LblCrsStartDate => lblCrsStartDate;
+
+        public Label LblCrsEndDate => lblCrsEndDate;
+
+        readonly Button btnStartExam;
+        readonly Label lblCrsId;
+        readonly Label lblCrsStatus;
+        readonly Label lblCrsName;
+        readonly Label lblCrsStartDate;
+        readonly Label lblCrsEndDate;
+        public Course Course { get; }
+
+        public CourseBox(Course course)
         {
-            InitializeComponent();
-        }
-
-        private StudentSystem sys;
-
-        private readonly List<CourseBox> CourseBoxes = new List<CourseBox>();
-
-
-        private void StudentForm_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            //ReloadForm();
-
-
-
-
-        }
-
-        private void ReloadForm()
-        {
-            lblStdId.Text = sys.Student.StId.ToString();
-            lblStdName.Text = sys.Student.StName;
-            lblStdEmail.Text = sys.Student.StEmail;
-            lblStdSSN.Text = sys.Student.Ssn.ToString();
-            lblStdBirth.Text = sys.Student.BirthDate.ToShortDateString();
-            lblStdDept.Text = sys.Department.DeptName;
-
-            CourseBoxes.Clear();
-            this.flowPanelCourses.Controls.Clear();
-            sys.Courses.ForEach(c =>
-            {
-                var cb = new CourseBox(c);
-                CourseBoxes.Add(cb);
-                this.flowPanelCourses.Controls.Add(cb.Parent);
-
-                cb.BtnStartExam.Click += (sender, e) =>
-                 {
-                     ExamForm exam = new ExamForm();
-                     this.Hide();
-                     exam.Show();
-                     exam.LoadExam(sys.Student, cb.Course);
-                 };
-            });
-
-        }
-
-
-
-        internal void SetStudent(Student std)
-        {
-            sys = StudentSystem.LoadStudent(std);
-            ReloadForm();
-
-
-        }
-
-        void AddCourse(Course course)
-        {
-
-            TableLayoutPanel tableLayoutPanel1 = new();
+            Course = course;
+            parent = new();
             Label label10 = new();
             Label label9 = new();
             Label label11 = new();
             Label label12 = new();
             Label label16 = new();
             Label label17 = new();
-            Button btnStartExam = new();
-            Label lblCrsId = new();
-            Label lblCrsStartDate = new();
-            Label lblCrsStatus = new();
-            Label lblCrsName = new();
-            Label lblCrsEndDate = new();
+            btnStartExam = new();
+            lblCrsId = new();
+            lblCrsStartDate = new();
+            lblCrsStatus = new();
+            lblCrsName = new();
+            lblCrsEndDate = new();
 
 
-            tableLayoutPanel1.AutoSize = true;
-            tableLayoutPanel1.ColumnCount = 4;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(label12, 0, 3);
-            tableLayoutPanel1.Controls.Add(label10, 0, 2);
-            tableLayoutPanel1.Controls.Add(label9, 0, 1);
-            tableLayoutPanel1.Controls.Add(label11, 0, 0);
-            tableLayoutPanel1.Controls.Add(label16, 2, 1);
-            tableLayoutPanel1.Controls.Add(label17, 2, 2);
-            tableLayoutPanel1.Controls.Add(btnStartExam, 2, 3);
-            tableLayoutPanel1.Controls.Add(lblCrsId, 1, 1);
-            tableLayoutPanel1.Controls.Add(lblCrsStartDate, 1, 2);
-            tableLayoutPanel1.Controls.Add(lblCrsStatus, 1, 3);
-            tableLayoutPanel1.Controls.Add(lblCrsName, 3, 1);
-            tableLayoutPanel1.Controls.Add(lblCrsEndDate, 3, 2);
-            tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(503, 201);
-            tableLayoutPanel1.TabIndex = 1;
+            parent.AutoSize = true;
+            parent.ColumnCount = 4;
+            parent.ColumnStyles.Add(new ColumnStyle());
+            parent.ColumnStyles.Add(new ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            parent.ColumnStyles.Add(new ColumnStyle());
+            parent.ColumnStyles.Add(new ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            parent.Controls.Add(label12, 0, 3);
+            parent.Controls.Add(label10, 0, 2);
+            parent.Controls.Add(label9, 0, 1);
+            parent.Controls.Add(label11, 0, 0);
+            parent.Controls.Add(label16, 2, 1);
+            parent.Controls.Add(label17, 2, 2);
+            parent.Controls.Add(btnStartExam, 2, 3);
+            parent.Controls.Add(lblCrsId, 1, 1);
+            parent.Controls.Add(lblCrsStartDate, 1, 2);
+            parent.Controls.Add(lblCrsStatus, 1, 3);
+            parent.Controls.Add(lblCrsName, 3, 1);
+            parent.Controls.Add(lblCrsEndDate, 3, 2);
+            parent.Location = new System.Drawing.Point(3, 3);
+            parent.Name = "tableLayoutPanel1";
+            parent.RowCount = 4;
+            parent.RowStyles.Add(new RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            parent.RowStyles.Add(new RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            parent.RowStyles.Add(new RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            parent.RowStyles.Add(new RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            parent.Size = new System.Drawing.Size(503, 201);
+            parent.TabIndex = 1;
             // 
             // label12
             // 
@@ -151,7 +117,7 @@ namespace ExamSystemUIWinforms
             // 
             label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             label11.AutoSize = true;
-            tableLayoutPanel1.SetColumnSpan(label11, 4);
+            parent.SetColumnSpan(label11, 4);
             label11.Location = new System.Drawing.Point(201, 11);
             label11.Name = "label11";
             label11.Size = new System.Drawing.Size(101, 28);
@@ -178,7 +144,7 @@ namespace ExamSystemUIWinforms
             // 
             // btnStartExam
             // 
-            tableLayoutPanel1.SetColumnSpan(btnStartExam, 2);
+            parent.SetColumnSpan(btnStartExam, 2);
             btnStartExam.Dock = System.Windows.Forms.DockStyle.Fill;
             btnStartExam.Location = new System.Drawing.Point(261, 153);
             btnStartExam.Name = "btnStartExam";
@@ -186,7 +152,7 @@ namespace ExamSystemUIWinforms
             btnStartExam.TabIndex = 9;
             btnStartExam.Text = "Start Exam";
             btnStartExam.UseVisualStyleBackColor = true;
-            
+
             // 
             // lblCrsId
             // 
@@ -240,14 +206,19 @@ namespace ExamSystemUIWinforms
 
             // my logic
 
-            foreach (var item in tableLayoutPanel1.Controls)
+            foreach (var item in parent.Controls)
             {
-                if(item is Label lb)
+                if (item is Label lb)
                     lb.Padding = new Padding(7);
             }
-                
 
-            this.flowPanelCourses.Controls.Add(tableLayoutPanel1);
+            //btnStartExam.Visible = false;
+            
         }
     }
+
+
+    
+
+
 }

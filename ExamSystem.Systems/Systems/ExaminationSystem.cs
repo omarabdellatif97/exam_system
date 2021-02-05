@@ -3,15 +3,12 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using ExamSystem.DAL.Presistence;
 
 namespace ExamSystem.Systems
 {
     public class ExaminationSystem
     {
-
-
-
-        
 
         private Student student;
         private Department department;
@@ -19,6 +16,9 @@ namespace ExamSystem.Systems
 
         private List<ExamQuestion> questions;
 
+
+        private UnitOfWork context;
+        private DateTime startTime;
 
         public ExaminationSystem(Student std, Course course)
         {
@@ -32,14 +32,29 @@ namespace ExamSystem.Systems
         public Course Course { get => course; internal set => course = value; }
         public List<ExamQuestion> Questions { get => questions; internal set => questions = value; }
         public Exam Exam { get; internal set; }
+        public DateTime StartTime
+        {
+            get => startTime; set
+            {
+                startTime = value;
+                EndTime = startTime + Exam.Duration;
+            }
+        }
+
+        public DateTime EndTime { get; set; }
 
         public void SubmitAnswers()
         {
-            /// model context
-            /// sumit
-            //QuestionInstance e;
+            // list of choices that student select from each question
+            var ans = this.questions.Select(q => q.StudentChoices).ToList();
+
         }
 
+
+        public void Start()
+        {
+
+        }
 
 
         // db 
@@ -51,7 +66,7 @@ namespace ExamSystem.Systems
             Exam ex = new Exam();
             ex.ExamId = 10;
             ex.Date = DateTime.Now;
-            ex.Duration = new TimeSpan(1, 0, 0);
+            ex.Duration = new TimeSpan(0, 3, 0);
             ex.TrialNo = 1;
             ex.StId = std.StId;
             ex.CrsId = course.CrsId;
@@ -67,7 +82,7 @@ namespace ExamSystem.Systems
                             QueNo = i + 1,
                             QueInsId = i + 1,
                             QueId = i + 1,
-                            QueBody = $"body {i + 1} {"".PadLeft(new Random().Next(10, 100),'a')}",
+                            QueBody = $"body {i + 1} {"".PadLeft(new Random().Next(10, 100), 'a')}",
                             Grade = 2,
                             QueType = QuestionType.MCQ,
                             ChoNo = choNO,

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ExamSystem.Systems;
 using ExamSystem.DAL;
 using ExamSystem.DAL.Models;
+using System.Diagnostics;
 
 
 namespace ExamSystemUIWinforms
@@ -25,20 +26,26 @@ namespace ExamSystemUIWinforms
 
         private void ExamForm_Load(object sender, EventArgs e)
         {
-            LoadExam(null, null);
+            //LoadExam(null, null);
+            this.WindowState = FormWindowState.Maximized;
+            this.FormClosed += (sender, e) =>
+            {
+                timer.Stop();
+                sys.SubmitAnswers();
+            };
 
             
 
 
         }
 
-        private void LoadExam(Student std, Course crs)
+        public void LoadExam(Student std, Course crs)
         {
-            sys = ExaminationSystem.LoadExamTest();
+            sys = ExaminationSystem.LoadExam(std, crs);
             nav = new ExamNavigator(sys);
 
 
-            lblTitle.Text = $"{sys.Student.StId} {sys.Student.StName}";
+            lblTitle.Text = $"Student Id: {sys.Student.StId} , Name: {sys.Student.StName} Course: {sys.Course.CrsName}";
 
             lblTimer.Text = "Start Exam";
 
@@ -47,10 +54,31 @@ namespace ExamSystemUIWinforms
                 SetQuestion(e.Question);
             };
 
+            nav.MoveNext();
 
+            //backThread.RunWorkerAsync();
+
+            timer.Interval = 1000;
+            timer.Tick += (sender, e) =>
+            {
+                lblTimer.Invoke((MethodInvoker)delegate ()
+                {
+                    var t = sys.EndTime - DateTime.Now;
+                    lblTimer.Text = $" {t.Hours}:{t.Minutes}:{t.Seconds}";
+                });
+                if (DateTime.Now >= sys.EndTime)
+                {
+                    EndExam();
+                }
+            };
+
+            timer.Start();
+            sys.StartTime = DateTime.Now;
 
             //SetQuestion(sys.Questions[0]);
         }
+
+        
 
         private void SetQuestion(ExamQuestion question)
         {
@@ -137,8 +165,19 @@ namespace ExamSystemUIWinforms
                 ,"Submit Answer"
                 ,MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                sys.SubmitAnswers();
+                //EndExam();
+                this.Close();
             }
+        }
+
+        private void backThread_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
         }
 
 

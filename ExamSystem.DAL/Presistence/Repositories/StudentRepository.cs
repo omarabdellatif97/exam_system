@@ -1,11 +1,11 @@
-﻿using ExamSystem.DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Text;
-using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Linq;
+using ExamSystem.DAL.Models;
+using ExamSystem.DAL.Core.Repositories;
 
-namespace ExamSystem.DAL
+namespace ExamSystem.DAL.Presistence.Repositories
 {
     class StudentRepository : Repository<Student>, IStudentRepository
     {
@@ -20,8 +20,10 @@ namespace ExamSystem.DAL
 
         public Student authenticate(string email, string password)
         {
-            
-            throw new NotImplementedException();
+            byte[] bytes = SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(password));
+            string hashedPwd = BitConverter.ToString(bytes).Replace("-", "");
+            Student student = ExamContext.Students.FirstOrDefault(S => S.StHashedPwd == hashedPwd && S.StEmail == email);
+            return student;
         }
     }
 

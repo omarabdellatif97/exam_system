@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamSystem.DAL.Models;
+using ExamSystem.DAL.Core.Repositories;
 
-namespace ExamSystem.DAL
+namespace ExamSystem.DAL.Presistence.Repositories
 {
     class ExamRepository : Repository<Exam>, IExamRepository
     {

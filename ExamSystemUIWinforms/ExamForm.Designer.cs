@@ -29,6 +29,7 @@ namespace ExamSystemUIWinforms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@ namespace ExamSystemUIWinforms
             this.lblQueNo = new System.Windows.Forms.Label();
             this.lblQueHader = new System.Windows.Forms.Label();
             this.flowChoices = new System.Windows.Forms.FlowLayoutPanel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -203,6 +205,10 @@ namespace ExamSystemUIWinforms
             this.flowChoices.Size = new System.Drawing.Size(983, 191);
             this.flowChoices.TabIndex = 4;
             // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // ExamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
@@ -244,5 +250,6 @@ namespace ExamSystemUIWinforms
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Timer timer;
     }
 }

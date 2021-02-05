@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ExamSystem.DAL.Models;
 
-namespace ExamSystem.DAL
+namespace ExamSystem.DAL.Core.Repositories
 {
     public interface ICourseRepository:IRepository<Course>
     {
