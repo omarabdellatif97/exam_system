@@ -39,8 +39,27 @@ namespace ExamSystem.Systems
 
         }
 
+        public Instructor ValidateInstructor(string user, string pass)
+        {
+            if (user.Equals("moa") && pass.Equals("moa"))
+            {
+                return new Instructor()
+                {
+                    InsId = 1234,
+                    InsEmail = "moamensoroor@gmail.com",
+                    InsName = "Moamen Soroor",
+                    Dept = new Department()
+                    {
+                        DeptId = 1,
+                        DeptName = "Management"
+                    },
+                    DeptId = 1,
+
+                };
 
 
-
+            }
+            return null;
+        }
     }
 }

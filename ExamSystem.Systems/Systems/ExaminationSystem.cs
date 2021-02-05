@@ -66,7 +66,7 @@ namespace ExamSystem.Systems
             Exam ex = new Exam();
             ex.ExamId = 10;
             ex.Date = DateTime.Now;
-            ex.Duration = new TimeSpan(0, 3, 0);
+            ex.Duration = new TimeSpan(0, 1, 0);
             ex.TrialNo = 1;
             ex.StId = std.StId;
             ex.CrsId = course.CrsId;

@@ -163,19 +163,17 @@ namespace ExamSystemUIWinforms
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(983, 191);
+            this.panel4.Size = new System.Drawing.Size(983, 229);
             this.panel4.TabIndex = 3;
             // 
             // txtQueBody
             // 
-            this.txtQueBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQueBody.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.txtQueBody.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtQueBody.Location = new System.Drawing.Point(14, 59);
             this.txtQueBody.Multiline = true;
             this.txtQueBody.Name = "txtQueBody";
-            this.txtQueBody.Size = new System.Drawing.Size(954, 132);
+            this.txtQueBody.ReadOnly = true;
+            this.txtQueBody.Size = new System.Drawing.Size(954, 167);
             this.txtQueBody.TabIndex = 2;
             // 
             // lblQueNo
@@ -200,7 +198,7 @@ namespace ExamSystemUIWinforms
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.flowChoices, 2);
             this.flowChoices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowChoices.Location = new System.Drawing.Point(3, 200);
+            this.flowChoices.Location = new System.Drawing.Point(3, 238);
             this.flowChoices.Name = "flowChoices";
             this.flowChoices.Size = new System.Drawing.Size(983, 191);
             this.flowChoices.TabIndex = 4;

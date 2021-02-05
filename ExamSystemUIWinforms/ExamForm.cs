@@ -28,7 +28,7 @@ namespace ExamSystemUIWinforms
         {
             //LoadExam(null, null);
             this.WindowState = FormWindowState.Maximized;
-            this.FormClosed += (sender, e) =>
+            this.FormClosing += (sender, e) =>
             {
                 timer.Stop();
                 sys.SubmitAnswers();

@@ -27,6 +27,17 @@ namespace ExamSystem.DAL
                     Console.WriteLine(exam.ExamId);
                 }
 
+
+
+                // test moamen
+
+
+
+
+
+
+
+
             }
         }
 
