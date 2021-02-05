@@ -4,8 +4,8 @@ using System.Text;
 
 namespace ExamSystem.Systems
 {
-    public enum QuestionType
+    public enum ChoiceState
     {
-        TrueFalse=0, MCQ = 1
+        True = 1, False = 0
     }
 }
