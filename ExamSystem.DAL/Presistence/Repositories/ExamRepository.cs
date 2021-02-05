@@ -76,5 +76,11 @@ namespace ExamSystem.DAL.Presistence.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public Exam GetExam(int id)
+        {
+            //return Context.Exams.
+            return Context.Set<Exam>().Include(E => E.QuestionInstances).ThenInclude(QI => QI.Que).ThenInclude(Q => Q.ChoQues).ThenInclude(CQ => CQ.Cho).FirstOrDefault(E => E.ExamId == id);
+        }
     }
 }

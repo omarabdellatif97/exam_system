@@ -16,9 +16,14 @@ namespace ExamSystem.DAL
 
                 var student = unitOfWork.Students.authenticate("test@test.test", "12345678");
                 var courses = unitOfWork.Students.GetCourses(6);
-                foreach (var crs in courses)
+                var exam = unitOfWork.Exams.GetExam(7);
+                foreach (var QI in exam.QuestionInstances)
                 {
-                    Console.WriteLine(crs.CrsName);
+                    Console.WriteLine($"{QI.Que.QueBody}");
+                    foreach (var cho in QI.Que.ChoQues) 
+                    {
+                        Console.WriteLine(cho.Cho.ChoText);
+                    }
                 }
                 //var courses = unitOfWork.Courses.GetAll();
                 //var course = unitOfWork.Courses.GetAll().First();
