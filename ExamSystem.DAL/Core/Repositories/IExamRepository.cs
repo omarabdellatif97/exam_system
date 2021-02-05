@@ -10,5 +10,6 @@ namespace ExamSystem.DAL.Core.Repositories
     public interface IExamRepository: IRepository<Exam>
     {
         int generateExam(Course course, Student student, int numOfMCQ, int numOfTORF, TimeSpan timeSpan);
+        void submitExamAnswer(QuestionInstance QI, Choice ch);
     }
 }

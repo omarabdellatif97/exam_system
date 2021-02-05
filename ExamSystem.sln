@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamSystem.DAL", "ExamSyste
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamSystem.Systems", "ExamSystem.Systems\ExamSystem.Systems.csproj", "{7DD9FB0B-F59F-4D1A-AF9A-11EFC239052A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstructorSystemUI", "InstructorSystemUI\InstructorSystemUI.csproj", "{CFF50CF0-0936-4315-B69A-E84C7EDD0ECD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7DD9FB0B-F59F-4D1A-AF9A-11EFC239052A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DD9FB0B-F59F-4D1A-AF9A-11EFC239052A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DD9FB0B-F59F-4D1A-AF9A-11EFC239052A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF50CF0-0936-4315-B69A-E84C7EDD0ECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF50CF0-0936-4315-B69A-E84C7EDD0ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF50CF0-0936-4315-B69A-E84C7EDD0ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF50CF0-0936-4315-B69A-E84C7EDD0ECD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

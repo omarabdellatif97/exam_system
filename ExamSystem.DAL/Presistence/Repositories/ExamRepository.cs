@@ -71,5 +71,10 @@ namespace ExamSystem.DAL.Presistence.Repositories
             return (int)ExamID.Value;
 
         }
+
+        public void submitExamAnswer(QuestionInstance QI, Choice ch)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

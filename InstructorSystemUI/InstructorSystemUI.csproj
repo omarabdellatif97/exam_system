@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Core.WinForms" Version="18.4.0.41" />
+    <PackageReference Include="Syncfusion.Grid.Windows" Version="18.4.0.41" />
+    <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.41" />
+    <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="18.4.0.41" />
+    <PackageReference Include="Syncfusion.SfListView.WinForms" Version="18.4.0.41" />
+    <PackageReference Include="Syncfusion.Tools.Windows" Version="18.4.0.41" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExamSystem.DAL\ExamSystem.DAL.csproj" />
+  </ItemGroup>
+
+</Project>
