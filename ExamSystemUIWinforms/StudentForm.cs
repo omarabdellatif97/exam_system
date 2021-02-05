@@ -67,7 +67,19 @@ namespace ExamSystemUIWinforms
                     SetStudent(sys.Student);
 
                 };
+
+                cb.LblCrsEndDate.Text = $"{c.DateEnd}";
+
+                var trail = sys.Exams.Where(ex => ex.CrsId.Equals(c.CrsId)).OrderByDescending(ex => ex.TrialNo)
+                    .FirstOrDefault(e => e.CrsId.Equals(c.CrsId))?.TrialNo ?? 0;
+                cb.LblCrsStatus.Text = $"{trail}";
+
+                if (trail >= sys.MaxTrial || c.DateEnd > DateTime.Now)
+                    btnStartExam.Visible = false;
+
             });
+
+
 
             isLoaded = true;
         }

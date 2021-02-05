@@ -20,16 +20,14 @@ namespace ExamSystem.DAL.Presistence
             Questions = new QuestionRepository(_context);
             Exams = new ExamRepository(_context);
             Students = new StudentRepository(_context);
+            Instructors = new InstructorRepository(_context);
 
         }
 
         public IInstructorRepository Instructors { get; private set; }
         public ICourseRepository Courses { get; private set; }
-
         public IQuestionRepository Questions { get; private set; }
-
         public IExamRepository Exams { get; private set; }
-
         public IStudentRepository Students { get; private set; }
         public int Complete()
         {

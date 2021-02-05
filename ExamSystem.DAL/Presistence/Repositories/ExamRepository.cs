@@ -10,7 +10,7 @@ using ExamSystem.DAL.Core.Repositories;
 
 namespace ExamSystem.DAL.Presistence.Repositories
 {
-    class ExamRepository : Repository<Exam>, IExamRepository
+    public class ExamRepository : Repository<Exam>, IExamRepository
     {
         public ExamRepository(ExamContext context)
            : base(context)
@@ -70,6 +70,17 @@ namespace ExamSystem.DAL.Presistence.Repositories
             Context.Database.ExecuteSqlRaw("EXEC Generate_Exam @Crs_ID, @St_ID, @n1, @n2, @Duration, @examID output", Crs_ID, St_ID, n1, n2, Duration, ExamID);
             return (int)ExamID.Value;
 
+        }
+
+        public void submitExamAnswer(QuestionInstance QI, Choice ch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Exam GetExam(int id)
+        {
+            //return Context.Exams.
+            return Context.Set<Exam>().Include(E => E.QuestionInstances).ThenInclude(QI => QI.Que).ThenInclude(Q => Q.ChoQues).ThenInclude(CQ => CQ.Cho).FirstOrDefault(E => E.ExamId == id);
         }
     }
 }

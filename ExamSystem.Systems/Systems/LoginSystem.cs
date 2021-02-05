@@ -17,21 +17,29 @@ namespace ExamSystem.Systems
         {
             if(user.Equals("moa") && pass.Equals("moa"))
             {
-                return new Student()
-                {
-                    StId = 1234,
-                    Ssn = 12345567,
-                    BirthDate = DateTime.Now,
-                    StName = "Moamen Soroor",
-                    StEmail = "moamensoroor@gmail.com",
-                    Dept = new Department()
-                    {
-                        DeptId = 1,
-                        DeptName = "Management"
-                    },
-                    DeptId = 1,
+                //return new Student()
+                //{
+                //    StId = 1234,
+                //    Ssn = 12345567,
+                //    BirthDate = DateTime.Now,
+                //    StName = "Moamen Soroor",
+                //    StEmail = "moamensoroor@gmail.com",
+                //    Dept = new Department()
+                //    {
+                //        DeptId = 1,
+                //        DeptName = "Management"
+                //    },
+                //    DeptId = 1,
 
-                };
+                //};
+
+
+                using(UnitOfWork unit = new UnitOfWork(new ExamContext()))
+                {
+                    var std = unit.Students.Get(6);
+                    std.Dept = unit._Context.Departments.Find(std.DeptId);
+                    return std;
+                }
 
 
             }

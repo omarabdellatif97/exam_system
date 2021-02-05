@@ -45,7 +45,7 @@ namespace ExamSystemUIWinforms
             nav = new ExamNavigator(sys);
 
 
-            lblTitle.Text = $"Student Id: {sys.Student.StId} , Name: {sys.Student.StName} Course: {sys.Course.CrsName}";
+            lblTitle.Text = $"Student Id: {sys.Student.StId} ,      Name: {sys.Student.StName}      Course: {sys.Course.CrsName}";
 
             lblTimer.Text = "Start Exam";
 
@@ -115,9 +115,6 @@ namespace ExamSystemUIWinforms
                 case QuestionType.MCQ:
                     question.Choices.ForEach(c =>
                     {
-
-
-
                         CheckBox box = new CheckBox();
                         box.AutoSize = true;
                         if (question.StudentChoices.Contains(c))

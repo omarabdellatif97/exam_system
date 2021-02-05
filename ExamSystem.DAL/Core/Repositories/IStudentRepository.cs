@@ -10,5 +10,7 @@ namespace ExamSystem.DAL.Core.Repositories
     public interface IStudentRepository: IRepository<Student>
     {
         public Student authenticate(string email, string password);
+
+        public IEnumerable<Course> GetCourses(int id);
     }
 }

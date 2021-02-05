@@ -169,11 +169,11 @@ namespace ExamSystemUIWinforms
             // txtQueBody
             // 
             this.txtQueBody.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtQueBody.Location = new System.Drawing.Point(14, 59);
+            this.txtQueBody.Location = new System.Drawing.Point(-3, 59);
             this.txtQueBody.Multiline = true;
             this.txtQueBody.Name = "txtQueBody";
             this.txtQueBody.ReadOnly = true;
-            this.txtQueBody.Size = new System.Drawing.Size(954, 167);
+            this.txtQueBody.Size = new System.Drawing.Size(986, 167);
             this.txtQueBody.TabIndex = 2;
             // 
             // lblQueNo
@@ -200,6 +200,7 @@ namespace ExamSystemUIWinforms
             this.flowChoices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowChoices.Location = new System.Drawing.Point(3, 238);
             this.flowChoices.Name = "flowChoices";
+            this.flowChoices.Padding = new System.Windows.Forms.Padding(20);
             this.flowChoices.Size = new System.Drawing.Size(983, 191);
             this.flowChoices.TabIndex = 4;
             // 

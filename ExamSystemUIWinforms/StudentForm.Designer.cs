@@ -62,12 +62,19 @@ namespace ExamSystemUIWinforms
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.tabExams = new System.Windows.Forms.TabPage();
+            this.gridExams = new System.Windows.Forms.DataGridView();
+            this.clmCourseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTrailNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabStudent.SuspendLayout();
             this.tabCourses.SuspendLayout();
             this.flowPanelCourses.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabExams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridExams)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -436,6 +443,7 @@ namespace ExamSystemUIWinforms
             // 
             // tabExams
             // 
+            this.tabExams.Controls.Add(this.gridExams);
             this.tabExams.Location = new System.Drawing.Point(4, 37);
             this.tabExams.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabExams.Name = "tabExams";
@@ -443,6 +451,57 @@ namespace ExamSystemUIWinforms
             this.tabExams.TabIndex = 2;
             this.tabExams.Text = "Student Exams";
             this.tabExams.UseVisualStyleBackColor = true;
+            // 
+            // gridExams
+            // 
+            this.gridExams.AllowUserToAddRows = false;
+            this.gridExams.AllowUserToDeleteRows = false;
+            this.gridExams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridExams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmCourseId,
+            this.clmCourseName,
+            this.clmTrailNo,
+            this.clmGrade});
+            this.gridExams.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridExams.Location = new System.Drawing.Point(0, 0);
+            this.gridExams.Name = "gridExams";
+            this.gridExams.ReadOnly = true;
+            this.gridExams.RowHeadersWidth = 51;
+            this.gridExams.RowTemplate.Height = 29;
+            this.gridExams.Size = new System.Drawing.Size(900, 674);
+            this.gridExams.TabIndex = 0;
+            // 
+            // clmCourseId
+            // 
+            this.clmCourseId.HeaderText = "Course Id";
+            this.clmCourseId.MinimumWidth = 6;
+            this.clmCourseId.Name = "clmCourseId";
+            this.clmCourseId.ReadOnly = true;
+            this.clmCourseId.Width = 125;
+            // 
+            // clmCourseName
+            // 
+            this.clmCourseName.HeaderText = "Course";
+            this.clmCourseName.MinimumWidth = 6;
+            this.clmCourseName.Name = "clmCourseName";
+            this.clmCourseName.ReadOnly = true;
+            this.clmCourseName.Width = 200;
+            // 
+            // clmTrailNo
+            // 
+            this.clmTrailNo.HeaderText = "Trail No.";
+            this.clmTrailNo.MinimumWidth = 6;
+            this.clmTrailNo.Name = "clmTrailNo";
+            this.clmTrailNo.ReadOnly = true;
+            this.clmTrailNo.Width = 125;
+            // 
+            // clmGrade
+            // 
+            this.clmGrade.HeaderText = "Grade";
+            this.clmGrade.MinimumWidth = 6;
+            this.clmGrade.Name = "clmGrade";
+            this.clmGrade.ReadOnly = true;
+            this.clmGrade.Width = 125;
             // 
             // StudentForm
             // 
@@ -465,6 +524,8 @@ namespace ExamSystemUIWinforms
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabExams.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridExams)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -504,5 +565,10 @@ namespace ExamSystemUIWinforms
         private System.Windows.Forms.Label lblCrsStatus;
         private System.Windows.Forms.Label lblCrsName;
         private System.Windows.Forms.Label lblCrsEndDate;
+        private System.Windows.Forms.DataGridView gridExams;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTrailNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmGrade;
     }
 }
