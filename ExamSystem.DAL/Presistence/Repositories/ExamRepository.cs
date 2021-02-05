@@ -10,7 +10,7 @@ using ExamSystem.DAL.Core.Repositories;
 
 namespace ExamSystem.DAL.Presistence.Repositories
 {
-    class ExamRepository : Repository<Exam>, IExamRepository
+    public class ExamRepository : Repository<Exam>, IExamRepository
     {
         public ExamRepository(ExamContext context)
            : base(context)

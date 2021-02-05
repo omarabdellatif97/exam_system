@@ -1,19 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Core.WinForms" Version="18.4.0.41" />
-    <PackageReference Include="Syncfusion.Grid.Windows" Version="18.4.0.41" />
-    <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.41" />
-    <PackageReference Include="Syncfusion.SfDataGrid.WinForms" Version="18.4.0.41" />
-    <PackageReference Include="Syncfusion.SfListView.WinForms" Version="18.4.0.41" />
-    <PackageReference Include="Syncfusion.Tools.Windows" Version="18.4.0.41" />
-  </ItemGroup>
+    <PackageReference Include="Krypton.Navigator" Version="5.550.2101" />
+    <PackageReference Include="Krypton.Ribbon" Version="5.550.2101" />
+    <PackageReference Include="Krypton.Toolkit" Version="5.550.2101" />
+    <PackageReference Include="Krypton.Toolkit.Suite.Extended.Settings" Version="5.550.2102" />
+    <PackageReference Include="Krypton.Workspace" Version="5.550.2101" />
+</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ExamSystem.DAL\ExamSystem.DAL.csproj" />

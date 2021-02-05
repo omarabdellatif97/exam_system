@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExamSystem.DAL.Presistence.Repositories
 {
-    class CourseRepository : Repository<Course>, ICourseRepository
+    public class CourseRepository : Repository<Course>, ICourseRepository
     {
         public CourseRepository(ExamContext context)
             : base(context)

@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace InstructorSystemUI
         [STAThread]
         static void Main()
         {
+            //SkinManager.LoadAssembly(typeof(Office2016Theme).Assembly);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
