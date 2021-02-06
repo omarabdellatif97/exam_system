@@ -300,6 +300,8 @@ namespace ExamSystem.DAL.Models
 
                 entity.Property(e => e.CrsId).HasColumnName("Crs_ID");
 
+                entity.Property(e => e.MaxGrade).HasColumnName("Max_Grade");
+
                 entity.HasOne(d => d.St)
                     .WithMany(p => p.StCrs)
                     .HasForeignKey(d => d.StId)

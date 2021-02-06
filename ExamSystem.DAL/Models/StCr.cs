@@ -9,7 +9,8 @@ namespace ExamSystem.DAL.Models
     {
         public int StId { get; set; }
         public int CrsId { get; set; }
-        public int? Grade { get; set; }
+        public double? Grade { get; set; }
+        public double? MaxGrade { get; set; }
 
         public virtual Student St { get; set; }
     }

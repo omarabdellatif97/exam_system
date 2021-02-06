@@ -25,6 +25,10 @@ namespace ExamSystem.DAL
                         Console.WriteLine(cho.Cho.ChoText);
                     }
                 }
+
+                unitOfWork.Exams.correctExam(exam);
+                //Console.WriteLine(grade);
+                //unitOfWork.
                 //var courses = unitOfWork.Courses.GetAll();
                 //var course = unitOfWork.Courses.GetAll().First();
                 //var student = unitOfWork._Context.Students.First();
