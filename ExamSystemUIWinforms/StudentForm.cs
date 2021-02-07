@@ -33,11 +33,24 @@ namespace ExamSystemUIWinforms
 
         private void LoadForm()
         {
-            if (isLoaded == true)
-            {
-                return;
+            
+            var data = sys.Exams.Select(e =>
+               new {
+                   Course = sys.Courses.FirstOrDefault(c => c.CrsId == e.CrsId),
+                   e.CrsId,
+                   e.ExamId,
+                   e.TrialNo,
+               }).Select(e =>
+               new {
+                   courseName = e.Course.CrsName,
+                   e.CrsId,
+                   e.ExamId,
+                   e.TrialNo,
+                   Grade = e.Course.StCrs.FirstOrDefault(c => c.CrsId == e.CrsId).Grade,
+                   MaxGrad = e.Course.StCrs.FirstOrDefault(c => c.CrsId == e.CrsId).MaxGrade
+               }).ToList();
 
-            }
+            gridExams.DataSource = data;
             lblStdId.Text = sys.Student.StId.ToString();
             lblStdName.Text = sys.Student.StName;
             lblStdEmail.Text = sys.Student.StEmail;
@@ -63,7 +76,7 @@ namespace ExamSystemUIWinforms
                         exam.ShowDialog();
 
                         // 
-                        //SetStudent(sys.Student);
+                        SetStudent(sys.Student);
                     }
                     catch ( Exception ex)
                     {
@@ -94,25 +107,6 @@ namespace ExamSystemUIWinforms
 
             // fill exam grid with data
 
-            var data = sys.Exams.Select(e =>
-                new {
-                    Course = sys.Courses.FirstOrDefault(c => c.CrsId == e.CrsId),
-                    e.CrsId,
-                    e.ExamId,
-                    e.TrialNo,
-                }).Select(e =>
-                new {
-                    courseName = e.Course.CrsName,
-                    e.CrsId,
-                    e.ExamId,
-                    e.TrialNo,
-                    Grade = e.Course.StCrs.FirstOrDefault(c => c.CrsId == e.CrsId).Grade,
-                    MaxGrad = e.Course.StCrs.FirstOrDefault(c => c.CrsId == e.CrsId).MaxGrade
-                }).ToList();
-
-            gridExams.DataSource = data;
-
-            isLoaded = true;
         }
 
         internal void SetStudent(Student std)
