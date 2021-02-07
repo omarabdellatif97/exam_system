@@ -37,6 +37,15 @@ namespace ExamSystemUIWinforms
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
+            if(txtName.Text == "" || txtPassword.Text == "")
+            {
+                MessageBox.Show("Not Valid Username Or Password",
+                    "Not Valid Login Try",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             var std = sys.ValidateStudent(txtName.Text, txtPassword.Text);
 
             if(std != null)

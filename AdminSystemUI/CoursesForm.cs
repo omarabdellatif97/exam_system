@@ -117,9 +117,8 @@ namespace AdminSystemUI
 
                     gridAllCourses.EndEdit();
                     ctxAllCourses.SaveChanges();
-
-
                     MessageBox.Show("Operation Done Successfully.", "Success Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reload();
                 }
                 catch (Exception ex)
                 {
@@ -129,6 +128,36 @@ namespace AdminSystemUI
             }
 
             
+        }
+
+
+        private void Reload()
+        {
+            
+            using (ExamContext ctx = new ExamContext())
+            {
+                ctx.Courses.Load();
+                ctx.Students.Load();
+                ctx.Instructors.Load();
+                //ctx.StCrs.Load();
+                //ctx.InsCrs.Load();
+
+                students = ctx.Students.Local.ToList();
+                instructors = ctx.Instructors.Local.ToList();
+                courses = ctx.Courses.Local.ToList();
+                //stdCrs = ctx.StCrs.Local.ToList();
+                //insCrs = ctx.InsCrs.Local.ToList();
+            }
+
+
+
+
+            //cmbStd.DataSource = ctx.Students.Local.ToList();
+            cmbStd.DataSource = students;
+            cmbCourse.DataSource = courses;
+            cmbInstructor.DataSource = instructors;
+            cmbInsCourses.DataSource = courses;
+
         }
 
         private void cmbStd_SelectedIndexChanged(object sender, EventArgs e)

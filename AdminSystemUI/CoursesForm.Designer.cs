@@ -109,6 +109,7 @@ namespace AdminSystemUI
             // 
             // gridAllCourses
             // 
+            this.gridAllCourses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridAllCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridAllCourses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridAllCourses.Location = new System.Drawing.Point(3, 3);
@@ -147,12 +148,12 @@ namespace AdminSystemUI
             // 
             // lblStdState
             // 
+            this.lblStdState.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblStdState.AutoSize = true;
-            this.lblStdState.Location = new System.Drawing.Point(94, 282);
+            this.lblStdState.Location = new System.Drawing.Point(409, 281);
             this.lblStdState.Name = "lblStdState";
-            this.lblStdState.Size = new System.Drawing.Size(46, 31);
+            this.lblStdState.Size = new System.Drawing.Size(0, 31);
             this.lblStdState.TabIndex = 9;
-            this.lblStdState.Text = "std";
             // 
             // btnCheckStdCrs
             // 
@@ -255,8 +256,9 @@ namespace AdminSystemUI
             // 
             // lblInsState
             // 
+            this.lblInsState.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblInsState.AutoSize = true;
-            this.lblInsState.Location = new System.Drawing.Point(114, 253);
+            this.lblInsState.Location = new System.Drawing.Point(396, 253);
             this.lblInsState.Name = "lblInsState";
             this.lblInsState.Size = new System.Drawing.Size(0, 31);
             this.lblInsState.TabIndex = 7;
