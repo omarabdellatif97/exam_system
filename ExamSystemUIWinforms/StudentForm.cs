@@ -30,7 +30,7 @@ namespace ExamSystemUIWinforms
             this.WindowState = FormWindowState.Maximized;
             //ReloadForm();
 
-
+            
 
 
         }
@@ -75,11 +75,18 @@ namespace ExamSystemUIWinforms
                 cb.LblCrsStatus.Text = $"{trail}";
 
                 if (trail >= sys.MaxTrial || c.DateEnd > DateTime.Now)
-                    btnStartExam.Visible = false;
+                    btnStartExam.Enabled = false;
 
             });
 
 
+            // fill exam grid with data
+
+            var data = sys.Exams.Select(e =>
+                new { e.CrsId, e.ExamId, e.TrialNo,
+                    Course = sys.Courses.FirstOrDefault(c => c.CrsId == e.CrsId) }).ToList();
+
+            gridExams.DataSource = data;
 
             isLoaded = true;
         }

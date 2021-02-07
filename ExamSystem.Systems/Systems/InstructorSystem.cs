@@ -1,7 +1,10 @@
 ﻿using ExamSystem.DAL.Models;
+using ExamSystem.DAL.Presistence;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+
 
 namespace ExamSystem.Systems.Systems
 {
@@ -33,24 +36,23 @@ namespace ExamSystem.Systems.Systems
         {
             InstructorSystem sys = new InstructorSystem(std);
 
-            //sys.Student = new Student()
-            //{
-            //    StId = 1234,
-            //    Ssn = 12345567,
-            //    BirthDate = DateTime.Now,
-            //    StName = "Moamen Soroor",
-            //    StEmail = "moamensoroor@gmail.com",
-            //    Dept = new Department()
-            //    {
-            //        DeptId = 1,
-            //        DeptName = "Management"
-            //    },
-            //    DeptId = 1,
+            using(var ctx = new ExamContext())
+            {
+                sys.Instructor = std;
+                sys.Department = std.Dept;
 
-            //};
+                var result = from c in ctx.Courses
+                             join ci in ctx.InsCrs
+                             on c.CrsId equals ci.CrsId
+                             where ci.InsId.Equals(sys.instructor)
+                             select c;
 
-            sys.Instructor = std;
-            sys.Department = std.Dept;
+
+                sys.courses = result.ToList();
+            }
+
+            
+
 
             sys.Courses = new List<Course>()
             {

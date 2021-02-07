@@ -15,36 +15,18 @@ namespace ExamSystem.Systems
         // student or instructor
         public Student ValidateStudent(string user, string pass)
         {
-            if(user.Equals("moa") && pass.Equals("moa"))
+            //if(user.Equals("moa") && pass.Equals("moa"))
+            //{
+                
+            //}
+
+            using (UnitOfWork unit = new UnitOfWork(new ExamContext()))
             {
-                //return new Student()
-                //{
-                //    StId = 1234,
-                //    Ssn = 12345567,
-                //    BirthDate = DateTime.Now,
-                //    StName = "Moamen Soroor",
-                //    StEmail = "moamensoroor@gmail.com",
-                //    Dept = new Department()
-                //    {
-                //        DeptId = 1,
-                //        DeptName = "Management"
-                //    },
-                //    DeptId = 1,
-
-                //};
-
-
-                using(UnitOfWork unit = new UnitOfWork(new ExamContext()))
-                {
-                    var std = unit.Students.Get(6);
-                    std.Dept = unit._Context.Departments.Find(std.DeptId);
-                    return std;
-                }
-
-
+                var std = unit.Students.authenticate(user, pass);
+                if (std == null) return null;
+                std.Dept = unit._Context.Departments.Find(std.DeptId);
+                return std;
             }
-            return null;
-
         }
 
         public Instructor ValidateInstructor(string user, string pass)

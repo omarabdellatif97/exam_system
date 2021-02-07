@@ -30,20 +30,7 @@ namespace ExamSystemUIWinforms
         private void InitializeComponent()
         {
             this.tabCourses = new System.Windows.Forms.TabPage();
-            this.flowPanelCourses = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.btnStartExam = new System.Windows.Forms.Button();
-            this.lblCrsId = new System.Windows.Forms.Label();
-            this.lblCrsStartDate = new System.Windows.Forms.Label();
-            this.lblCrsStatus = new System.Windows.Forms.Label();
-            this.lblCrsName = new System.Windows.Forms.Label();
-            this.lblCrsEndDate = new System.Windows.Forms.Label();
+            this.gridInsCourses = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -58,21 +45,21 @@ namespace ExamSystemUIWinforms
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabInstructorPanel = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnInstructorManage = new System.Windows.Forms.Button();
+            this.btnStudentManage = new System.Windows.Forms.Button();
+            this.btnDeptManage = new System.Windows.Forms.Button();
+            this.btnCoursesSystem = new System.Windows.Forms.Button();
             this.tabCourses.SuspendLayout();
-            this.flowPanelCourses.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridInsCourses)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabStudent.SuspendLayout();
             this.tabInstructorPanel.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabCourses
             // 
-            this.tabCourses.Controls.Add(this.flowPanelCourses);
+            this.tabCourses.Controls.Add(this.gridInsCourses);
             this.tabCourses.Controls.Add(this.panel1);
             this.tabCourses.Location = new System.Drawing.Point(4, 37);
             this.tabCourses.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -83,165 +70,20 @@ namespace ExamSystemUIWinforms
             this.tabCourses.Text = "Instructor Courses";
             this.tabCourses.UseVisualStyleBackColor = true;
             // 
-            // flowPanelCourses
+            // gridInsCourses
             // 
-            this.flowPanelCourses.AutoScroll = true;
-            this.flowPanelCourses.Controls.Add(this.tableLayoutPanel1);
-            this.flowPanelCourses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanelCourses.Location = new System.Drawing.Point(5, 104);
-            this.flowPanelCourses.Name = "flowPanelCourses";
-            this.flowPanelCourses.Size = new System.Drawing.Size(890, 566);
-            this.flowPanelCourses.TabIndex = 2;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label16, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label17, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnStartExam, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lblCrsId, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblCrsStartDate, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblCrsStatus, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lblCrsName, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblCrsEndDate, 3, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(503, 135);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(3, 84);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(104, 51);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "YourStatus";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(3, 56);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 28);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Start Date:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Location = new System.Drawing.Point(3, 28);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(104, 28);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "ID: ";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label11, 4);
-            this.label11.Location = new System.Drawing.Point(201, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 28);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "C# Course";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(261, 28);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(73, 28);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "Name: ";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(261, 56);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(91, 28);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "End Date";
-            // 
-            // btnStartExam
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.btnStartExam, 2);
-            this.btnStartExam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnStartExam.Location = new System.Drawing.Point(261, 87);
-            this.btnStartExam.Name = "btnStartExam";
-            this.btnStartExam.Size = new System.Drawing.Size(239, 45);
-            this.btnStartExam.TabIndex = 9;
-            this.btnStartExam.Text = "Start Exam";
-            this.btnStartExam.UseVisualStyleBackColor = true;
-            // 
-            // lblCrsId
-            // 
-            this.lblCrsId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCrsId.AutoSize = true;
-            this.lblCrsId.Location = new System.Drawing.Point(153, 28);
-            this.lblCrsId.Name = "lblCrsId";
-            this.lblCrsId.Size = new System.Drawing.Size(61, 28);
-            this.lblCrsId.TabIndex = 10;
-            this.lblCrsId.Text = "TEMP";
-            // 
-            // lblCrsStartDate
-            // 
-            this.lblCrsStartDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCrsStartDate.AutoSize = true;
-            this.lblCrsStartDate.Location = new System.Drawing.Point(153, 56);
-            this.lblCrsStartDate.Name = "lblCrsStartDate";
-            this.lblCrsStartDate.Size = new System.Drawing.Size(61, 28);
-            this.lblCrsStartDate.TabIndex = 11;
-            this.lblCrsStartDate.Text = "TEMP";
-            // 
-            // lblCrsStatus
-            // 
-            this.lblCrsStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblCrsStatus.AutoSize = true;
-            this.lblCrsStatus.Location = new System.Drawing.Point(153, 95);
-            this.lblCrsStatus.Name = "lblCrsStatus";
-            this.lblCrsStatus.Size = new System.Drawing.Size(61, 28);
-            this.lblCrsStatus.TabIndex = 12;
-            this.lblCrsStatus.Text = "TEMP";
-            // 
-            // lblCrsName
-            // 
-            this.lblCrsName.AutoSize = true;
-            this.lblCrsName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCrsName.Location = new System.Drawing.Point(358, 28);
-            this.lblCrsName.Name = "lblCrsName";
-            this.lblCrsName.Size = new System.Drawing.Size(142, 28);
-            this.lblCrsName.TabIndex = 13;
-            this.lblCrsName.Text = "TEMP";
-            // 
-            // lblCrsEndDate
-            // 
-            this.lblCrsEndDate.AutoSize = true;
-            this.lblCrsEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCrsEndDate.Location = new System.Drawing.Point(358, 56);
-            this.lblCrsEndDate.Name = "lblCrsEndDate";
-            this.lblCrsEndDate.Size = new System.Drawing.Size(142, 28);
-            this.lblCrsEndDate.TabIndex = 14;
-            this.lblCrsEndDate.Text = "TEMP";
+            this.gridInsCourses.AllowUserToAddRows = false;
+            this.gridInsCourses.AllowUserToDeleteRows = false;
+            this.gridInsCourses.AllowUserToOrderColumns = true;
+            this.gridInsCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridInsCourses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridInsCourses.Location = new System.Drawing.Point(5, 104);
+            this.gridInsCourses.Name = "gridInsCourses";
+            this.gridInsCourses.ReadOnly = true;
+            this.gridInsCourses.RowHeadersWidth = 51;
+            this.gridInsCourses.RowTemplate.Height = 29;
+            this.gridInsCourses.Size = new System.Drawing.Size(890, 566);
+            this.gridInsCourses.TabIndex = 2;
             // 
             // panel1
             // 
@@ -258,12 +100,12 @@ namespace ExamSystemUIWinforms
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(333, 22);
+            this.label8.Location = new System.Drawing.Point(388, 26);
             this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(259, 41);
+            this.label8.Size = new System.Drawing.Size(124, 41);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Instructor Courses";
+            this.label8.Text = "Courses";
             // 
             // tabControl
             // 
@@ -392,7 +234,10 @@ namespace ExamSystemUIWinforms
             // 
             // tabInstructorPanel
             // 
-            this.tabInstructorPanel.Controls.Add(this.flowLayoutPanel1);
+            this.tabInstructorPanel.Controls.Add(this.btnInstructorManage);
+            this.tabInstructorPanel.Controls.Add(this.btnStudentManage);
+            this.tabInstructorPanel.Controls.Add(this.btnDeptManage);
+            this.tabInstructorPanel.Controls.Add(this.btnCoursesSystem);
             this.tabInstructorPanel.Location = new System.Drawing.Point(4, 37);
             this.tabInstructorPanel.Name = "tabInstructorPanel";
             this.tabInstructorPanel.Padding = new System.Windows.Forms.Padding(3);
@@ -401,23 +246,45 @@ namespace ExamSystemUIWinforms
             this.tabInstructorPanel.Text = "Instructor Control Panel";
             this.tabInstructorPanel.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // btnInstructorManage
             // 
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(894, 668);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.btnInstructorManage.Location = new System.Drawing.Point(32, 229);
+            this.btnInstructorManage.Name = "btnInstructorManage";
+            this.btnInstructorManage.Size = new System.Drawing.Size(837, 63);
+            this.btnInstructorManage.TabIndex = 3;
+            this.btnInstructorManage.Text = "Instructors";
+            this.btnInstructorManage.UseVisualStyleBackColor = true;
+            this.btnInstructorManage.Click += new System.EventHandler(this.btnInstructorManage_Click);
             // 
-            // button1
+            // btnStudentManage
             // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 71);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnStudentManage.Location = new System.Drawing.Point(32, 159);
+            this.btnStudentManage.Name = "btnStudentManage";
+            this.btnStudentManage.Size = new System.Drawing.Size(837, 63);
+            this.btnStudentManage.TabIndex = 2;
+            this.btnStudentManage.Text = "Students";
+            this.btnStudentManage.UseVisualStyleBackColor = true;
+            this.btnStudentManage.Click += new System.EventHandler(this.btnStudentManage_Click);
+            // 
+            // btnDeptManage
+            // 
+            this.btnDeptManage.Location = new System.Drawing.Point(32, 90);
+            this.btnDeptManage.Name = "btnDeptManage";
+            this.btnDeptManage.Size = new System.Drawing.Size(837, 63);
+            this.btnDeptManage.TabIndex = 1;
+            this.btnDeptManage.Text = "Departments";
+            this.btnDeptManage.UseVisualStyleBackColor = true;
+            this.btnDeptManage.Click += new System.EventHandler(this.btnDeptManage_Click);
+            // 
+            // btnCoursesSystem
+            // 
+            this.btnCoursesSystem.Location = new System.Drawing.Point(32, 21);
+            this.btnCoursesSystem.Name = "btnCoursesSystem";
+            this.btnCoursesSystem.Size = new System.Drawing.Size(837, 63);
+            this.btnCoursesSystem.TabIndex = 0;
+            this.btnCoursesSystem.Text = "Courses System";
+            this.btnCoursesSystem.UseVisualStyleBackColor = true;
+            this.btnCoursesSystem.Click += new System.EventHandler(this.btnCoursesSystem_Click);
             // 
             // InstructorPanelForm
             // 
@@ -431,17 +298,13 @@ namespace ExamSystemUIWinforms
             this.Text = "StudentForm";
             this.Load += new System.EventHandler(this.StudentForm_Load);
             this.tabCourses.ResumeLayout(false);
-            this.flowPanelCourses.ResumeLayout(false);
-            this.flowPanelCourses.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridInsCourses)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabStudent.ResumeLayout(false);
             this.tabStudent.PerformLayout();
             this.tabInstructorPanel.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -449,20 +312,6 @@ namespace ExamSystemUIWinforms
         #endregion
 
         private System.Windows.Forms.TabPage tabCourses;
-        private System.Windows.Forms.FlowLayoutPanel flowPanelCourses;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button btnStartExam;
-        private System.Windows.Forms.Label lblCrsId;
-        private System.Windows.Forms.Label lblCrsStartDate;
-        private System.Windows.Forms.Label lblCrsStatus;
-        private System.Windows.Forms.Label lblCrsName;
-        private System.Windows.Forms.Label lblCrsEndDate;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabControl tabControl;
@@ -478,7 +327,10 @@ namespace ExamSystemUIWinforms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabControlPanel;
         private System.Windows.Forms.TabPage tabInstructorPanel;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView gridInsCourses;
+        private System.Windows.Forms.Button btnCoursesSystem;
+        private System.Windows.Forms.Button btnInstructorManage;
+        private System.Windows.Forms.Button btnStudentManage;
+        private System.Windows.Forms.Button btnDeptManage;
     }
 }

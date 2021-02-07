@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using ExamSystem.Systems.Systems;
+using AdminSystemUI;
 
 namespace ExamSystemUIWinforms
 {
@@ -47,6 +48,12 @@ namespace ExamSystemUIWinforms
             lblStdName.Text = sys.Instructor.InsName;
             lblStdEmail.Text = sys.Instructor.InsEmail;
             lblStdDept.Text = sys.Department.DeptName;
+
+            gridInsCourses.DataSource = sys.Courses;
+
+            
+
+
             isLoaded = true;
         }
 
@@ -58,5 +65,30 @@ namespace ExamSystemUIWinforms
 
         }
 
+        private void btnCoursesSystem_Click(object sender, EventArgs e)
+        {
+            CoursesForm frm = new CoursesForm();
+
+            frm.ShowDialog();
+        }
+
+        private void btnDeptManage_Click(object sender, EventArgs e)
+        {
+            DepartmentsForm form = new DepartmentsForm();
+            form.ShowDialog();
+        }
+
+        private void btnStudentManage_Click(object sender, EventArgs e)
+        {
+            StudentsForm frm = new StudentsForm();
+            frm.ShowDialog();
+        }
+
+        private void btnInstructorManage_Click(object sender, EventArgs e)
+        {
+            InstructorsForm frm = new InstructorsForm();
+
+            frm.ShowDialog();
+        }
     }
 }
