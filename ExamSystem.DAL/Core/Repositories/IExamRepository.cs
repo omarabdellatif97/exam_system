@@ -11,6 +11,7 @@ namespace ExamSystem.DAL.Core.Repositories
     {
         int generateExam(Course course, Student student, int numOfMCQ, int numOfTORF, TimeSpan timeSpan);
         void submitExamAnswer(QuestionInstance QI, Choice ch);
+        void correctExam(Exam exam);
         Exam GetExam(int id);
     }
 }

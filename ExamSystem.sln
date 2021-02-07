@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamSystemUIWinforms", "Exa
 		{EAD9B166-75F9-4659-AEC8-2601057025F0} = {EAD9B166-75F9-4659-AEC8-2601057025F0}
 	EndProjectSection
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminSystemUI", "AdminSystemUI\AdminSystemUI.csproj", "{4D2E75E1-7FC5-4DA8-9C81-D7DF78334FFF}"
+=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstructorSystemUI", "InstructorSystemUI\InstructorSystemUI.csproj", "{5611EE49-6972-49D0-B260-EA76D3375827}"
+>>>>>>> master
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +37,17 @@ Global
 		{DACC9651-83E1-4D4D-84D6-7E7DEEFDE0E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DACC9651-83E1-4D4D-84D6-7E7DEEFDE0E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DACC9651-83E1-4D4D-84D6-7E7DEEFDE0E7}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{4D2E75E1-7FC5-4DA8-9C81-D7DF78334FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D2E75E1-7FC5-4DA8-9C81-D7DF78334FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D2E75E1-7FC5-4DA8-9C81-D7DF78334FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D2E75E1-7FC5-4DA8-9C81-D7DF78334FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{5611EE49-6972-49D0-B260-EA76D3375827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5611EE49-6972-49D0-B260-EA76D3375827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5611EE49-6972-49D0-B260-EA76D3375827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5611EE49-6972-49D0-B260-EA76D3375827}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> master
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

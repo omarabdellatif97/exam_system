@@ -300,6 +300,14 @@ namespace ExamSystem.DAL.Models
 
                 entity.Property(e => e.CrsId).HasColumnName("Crs_ID");
 
+                entity.Property(e => e.MaxGrade).HasColumnName("Max_Grade");
+
+                entity.HasOne(d => d.Crs)
+                    .WithMany(p => p.StCrs)
+                    .HasForeignKey(d => d.CrsId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_St_Crs_Course");
+
                 entity.HasOne(d => d.St)
                     .WithMany(p => p.StCrs)
                     .HasForeignKey(d => d.StId)
@@ -364,6 +372,12 @@ namespace ExamSystem.DAL.Models
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("Top_Name");
+
+                entity.HasOne(d => d.Crs)
+                    .WithMany(p => p.Topics)
+                    .HasForeignKey(d => d.CrsId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Topic_Course");
             });
 
             OnModelCreatingPartial(modelBuilder);

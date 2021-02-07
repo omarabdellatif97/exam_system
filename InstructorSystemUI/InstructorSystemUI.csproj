@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krypton.Navigator" Version="5.550.2101" />
+    <PackageReference Include="Krypton.Ribbon" Version="5.550.2101" />
+    <PackageReference Include="Krypton.Toolkit" Version="5.550.2101" />
+    <PackageReference Include="Krypton.Toolkit.Suite.Extended.Settings" Version="5.550.2102" />
+    <PackageReference Include="Krypton.Workspace" Version="5.550.2101" />
+</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExamSystem.DAL\ExamSystem.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

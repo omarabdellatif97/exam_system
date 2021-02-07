@@ -74,7 +74,19 @@ namespace ExamSystem.DAL.Presistence.Repositories
 
         public void submitExamAnswer(QuestionInstance QI, Choice ch)
         {
-            throw new NotImplementedException();
+            Context.QueInsChos.Add(new QueInsCho() { QueInsId = QI.QueId, ChoId = ch.ChoId });
+        }
+
+        public void correctExam(Exam exam)
+        {
+            var ExamID = new SqlParameter
+            {
+                ParameterName = "@Exam_ID",
+                SqlDbType = System.Data.SqlDbType.Int,
+                Direction = System.Data.ParameterDirection.Input,
+                Value = exam.ExamId
+            };
+            Context.Database.ExecuteSqlRaw("EXEC Correct_Exam @Exam_ID", ExamID);
         }
 
         public Exam GetExam(int id)
