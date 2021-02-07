@@ -14,7 +14,7 @@ namespace ExamSystem.DAL
             using (var unitOfWork = new UnitOfWork(new ExamContext()))
             {
 
-                var student = unitOfWork.Students.authenticate("test@test.test", "12345678");
+                //var student = unitOfWork.Students.authenticate("test@test.test", "12345678");
                 var courses = unitOfWork.Students.GetCourses(6);
                 var exam = unitOfWork.Exams.GetExam(7);
                 foreach (var QI in exam.QuestionInstances)
@@ -27,6 +27,12 @@ namespace ExamSystem.DAL
                 }
 
                 unitOfWork.Exams.correctExam(exam);
+    
+
+                var std = unitOfWork.Students.authenticate("moamensoroor@gmail.com", "12345678");
+                Console.WriteLine(std.StId);
+
+                //var crs = unitOfWork.Students.GetCourses(6);
                 //Console.WriteLine(grade);
                 //unitOfWork.
                 //var courses = unitOfWork.Courses.GetAll();

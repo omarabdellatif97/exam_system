@@ -12,6 +12,8 @@ namespace ExamSystem.DAL.Models
             Exams = new HashSet<Exam>();
             InsCrs = new HashSet<InsCr>();
             Questions = new HashSet<Question>();
+            StCrs = new HashSet<StCr>();
+            Topics = new HashSet<Topic>();
         }
 
         public int CrsId { get; set; }
@@ -24,5 +26,7 @@ namespace ExamSystem.DAL.Models
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<InsCr> InsCrs { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<StCr> StCrs { get; set; }
+        public virtual ICollection<Topic> Topics { get; set; }
     }
 }
