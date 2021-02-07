@@ -63,10 +63,6 @@ namespace ExamSystemUIWinforms
             this.label8 = new System.Windows.Forms.Label();
             this.tabExams = new System.Windows.Forms.TabPage();
             this.gridExams = new System.Windows.Forms.DataGridView();
-            this.clmCourseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTrailNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabStudent.SuspendLayout();
             this.tabCourses.SuspendLayout();
@@ -456,12 +452,8 @@ namespace ExamSystemUIWinforms
             // 
             this.gridExams.AllowUserToAddRows = false;
             this.gridExams.AllowUserToDeleteRows = false;
+            this.gridExams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridExams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridExams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmCourseId,
-            this.clmCourseName,
-            this.clmTrailNo,
-            this.clmGrade});
             this.gridExams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridExams.Location = new System.Drawing.Point(0, 0);
             this.gridExams.Name = "gridExams";
@@ -470,38 +462,6 @@ namespace ExamSystemUIWinforms
             this.gridExams.RowTemplate.Height = 29;
             this.gridExams.Size = new System.Drawing.Size(900, 674);
             this.gridExams.TabIndex = 0;
-            // 
-            // clmCourseId
-            // 
-            this.clmCourseId.HeaderText = "Course Id";
-            this.clmCourseId.MinimumWidth = 6;
-            this.clmCourseId.Name = "clmCourseId";
-            this.clmCourseId.ReadOnly = true;
-            this.clmCourseId.Width = 125;
-            // 
-            // clmCourseName
-            // 
-            this.clmCourseName.HeaderText = "Course";
-            this.clmCourseName.MinimumWidth = 6;
-            this.clmCourseName.Name = "clmCourseName";
-            this.clmCourseName.ReadOnly = true;
-            this.clmCourseName.Width = 200;
-            // 
-            // clmTrailNo
-            // 
-            this.clmTrailNo.HeaderText = "Trail No.";
-            this.clmTrailNo.MinimumWidth = 6;
-            this.clmTrailNo.Name = "clmTrailNo";
-            this.clmTrailNo.ReadOnly = true;
-            this.clmTrailNo.Width = 125;
-            // 
-            // clmGrade
-            // 
-            this.clmGrade.HeaderText = "Grade";
-            this.clmGrade.MinimumWidth = 6;
-            this.clmGrade.Name = "clmGrade";
-            this.clmGrade.ReadOnly = true;
-            this.clmGrade.Width = 125;
             // 
             // StudentForm
             // 
@@ -566,9 +526,5 @@ namespace ExamSystemUIWinforms
         private System.Windows.Forms.Label lblCrsName;
         private System.Windows.Forms.Label lblCrsEndDate;
         private System.Windows.Forms.DataGridView gridExams;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCourseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTrailNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmGrade;
     }
 }

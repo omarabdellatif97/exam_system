@@ -56,9 +56,17 @@ namespace ExamSystem.Systems
             {
 
                 context._Context.QueInsChos.AddRange(ans);
-
+                
                 context.Complete();
             };
+
+            using (var context = new UnitOfWork(new ExamContext()))
+            {
+                //context._Context.QueInsChos.AddRange(ans);
+                context.Exams.correctExam(this.Exam);
+                context.Complete();
+            };
+
 
         }
 
@@ -151,43 +159,44 @@ namespace ExamSystem.Systems
 
             try
             {
+                UnitOfWork context;
                 Exam ex;
-                using (var context = new UnitOfWork(new ExamContext()))
+                using (context = new UnitOfWork(new ExamContext()))
                 {
+                    int id = context.Exams.generateExam(course, std, course?.NumMcq??10, course?.NumTorf??5, course?.ExamDuration ??TimeSpan.FromMinutes(5));
+                    ex = context.Exams.GetExam(id);
+                    sys.Exam = ex;
+                    sys.Department = std.Dept;
+                    sys.Course = course;
+                    sys.Questions = new List<ExamQuestion>(
+                        sys.Exam.QuestionInstances.Select(q => new ExamQuestion()
+                        {
+                            QueNo = q.QueNo,
+                            QueInsId = q.QueInsId,
+                            QueBody = q.Que.QueBody,
+                            QueId = q.Que.QueId,
+                            Choices = q.Que.ChoQues.Select(c => c.Cho).ToList(),
+                            Grade = q.Que.Grade,
+                            QueType = (QuestionType)q.Que.QueType,
 
-                    //int id = context.Exams.generateExam(course, std, 10, 5, TimeSpan.FromMinutes(1));
-                    ex = context.Exams.GetExam(44);
+                        }));
+                    if (sys.Exam == null || sys.department == null || sys.course == null || sys.Questions.Count < 1)
+                        throw new Exception("Not Valid Exam Creation");
+
                 }
 
-                sys.Exam = ex;
-                sys.Department = std.Dept;
-                sys.Course = course;
-                sys.Questions = new List<ExamQuestion>(
-                    sys.Exam.QuestionInstances.Select(q => new ExamQuestion()
-                    {
-                        QueNo = q.QueNo,
-                        QueInsId = q.QueInsId,
-                        QueBody = q.Que.QueBody,
-                        QueId = q.Que.QueId,
-                        Choices = q.Que.ChoQues.Select(c=> c.Cho).ToList(),
-                        Grade = q.Que.Grade,
-                        QueType = (QuestionType) q.Que.QueType,
-
-                    }));
+                
                 return sys;
             }
             catch (Exception exp)
             {
                 Debug.WriteLine(exp.Message);
+                throw exp;
             }
 
             return sys;
             
         }
-
-
-
-
 
 
         // for test load
@@ -215,6 +224,8 @@ namespace ExamSystem.Systems
 
             return LoadExam(std, stdSys.Courses[0]);
         }
+
+
 
     }
 }

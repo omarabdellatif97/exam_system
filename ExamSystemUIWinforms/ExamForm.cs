@@ -41,6 +41,7 @@ namespace ExamSystemUIWinforms
 
         public void LoadExam(Student std, Course crs)
         {
+            
             sys = ExaminationSystem.LoadExam(std, crs);
             nav = new ExamNavigator(sys);
 

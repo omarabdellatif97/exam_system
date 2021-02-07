@@ -13,9 +13,9 @@ using ExamSystem.DAL.Presistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 
-namespace InstructorSystemUI
+namespace AdminSystemUI
 {
-    public partial class Form1 : Form
+    public partial class DeptManagementForm : Form
     {
         BindingSource stuBindingSource = new BindingSource();
         BindingSource deptBindingSource = new BindingSource();
@@ -23,7 +23,7 @@ namespace InstructorSystemUI
         BindingSource crsBindingSource = new BindingSource();
         BindingSource queBindingSource = new BindingSource();
         ExamContext examcontext = new ExamContext();
-        public Form1()
+        public DeptManagementForm()
         {
             InitializeComponent();
 
@@ -57,18 +57,13 @@ namespace InstructorSystemUI
             };
 
             dataGridView1.DataSource = stuBindingSource;
-            dataGridView1.Columns["StID"].ReadOnly = true;
+            dataGridView1.Columns["StID"].Visible = false;
             //dataGridView1.Columns["StID"].
             dataGridView1.Columns["Dept"].Visible = false;
             dataGridView1.Columns["Exams"].Visible = false;
             dataGridView1.Columns["StCrs"].Visible = false;
             dataGridView1.Columns["DeptId"].Visible = false;
 
-
-            comboCourse.DataSource = crsBindingSource;
-            comboCourse.DisplayMember = "CrsName";
-
-            dataGridView4.DataSource = queBindingSource;
 
             //textQuestion.DataBindings.Add("Text", queBindingSource, "QueBody", true);
 
@@ -104,6 +99,13 @@ namespace InstructorSystemUI
             DC3.ValueMember = "InsId";
             DC3.DisplayMember = "InsName";
             DC3.DataPropertyName = "MgrId";
+
+            dataGridView3.Columns["Instructors"].Visible = false;
+            dataGridView3.Columns["Students"].Visible = false;
+            dataGridView3.Columns["MgrId"].Visible = false;
+            dataGridView3.Columns["Mgr"].Visible = false;
+            dataGridView3.Columns["DeptId"].Visible = false;
+
         }
 
         private void dataGridView1_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
@@ -208,6 +210,11 @@ namespace InstructorSystemUI
         private void button2_Click_1(object sender, EventArgs e)
         {
             queBindingSource.AddNew();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

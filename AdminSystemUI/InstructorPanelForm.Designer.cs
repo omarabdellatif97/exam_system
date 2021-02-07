@@ -45,6 +45,8 @@ namespace ExamSystemUIWinforms
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabInstructorPanel = new System.Windows.Forms.TabPage();
+            this.btnQuestionsSystem = new System.Windows.Forms.Button();
+            this.btnDeptSystem = new System.Windows.Forms.Button();
             this.btnInstructorManage = new System.Windows.Forms.Button();
             this.btnStudentManage = new System.Windows.Forms.Button();
             this.btnDeptManage = new System.Windows.Forms.Button();
@@ -234,6 +236,8 @@ namespace ExamSystemUIWinforms
             // 
             // tabInstructorPanel
             // 
+            this.tabInstructorPanel.Controls.Add(this.btnQuestionsSystem);
+            this.tabInstructorPanel.Controls.Add(this.btnDeptSystem);
             this.tabInstructorPanel.Controls.Add(this.btnInstructorManage);
             this.tabInstructorPanel.Controls.Add(this.btnStudentManage);
             this.tabInstructorPanel.Controls.Add(this.btnDeptManage);
@@ -246,34 +250,58 @@ namespace ExamSystemUIWinforms
             this.tabInstructorPanel.Text = "Instructor Control Panel";
             this.tabInstructorPanel.UseVisualStyleBackColor = true;
             // 
+            // btnQuestionsSystem
+            // 
+            this.btnQuestionsSystem.Location = new System.Drawing.Point(32, 377);
+            this.btnQuestionsSystem.Name = "btnQuestionsSystem";
+            this.btnQuestionsSystem.Size = new System.Drawing.Size(837, 70);
+            this.btnQuestionsSystem.TabIndex = 5;
+            this.btnQuestionsSystem.Text = "Questions System";
+            this.btnQuestionsSystem.UseVisualStyleBackColor = true;
+            this.btnQuestionsSystem.Visible = false;
+            this.btnQuestionsSystem.Click += new System.EventHandler(this.btnQuestionsSystem_Click);
+            // 
+            // btnDeptSystem
+            // 
+            this.btnDeptSystem.Location = new System.Drawing.Point(32, 90);
+            this.btnDeptSystem.Name = "btnDeptSystem";
+            this.btnDeptSystem.Size = new System.Drawing.Size(837, 63);
+            this.btnDeptSystem.TabIndex = 4;
+            this.btnDeptSystem.Text = "Department System";
+            this.btnDeptSystem.UseVisualStyleBackColor = true;
+            this.btnDeptSystem.Click += new System.EventHandler(this.btnDeptSystem_Click);
+            // 
             // btnInstructorManage
             // 
-            this.btnInstructorManage.Location = new System.Drawing.Point(32, 229);
+            this.btnInstructorManage.Location = new System.Drawing.Point(32, 298);
             this.btnInstructorManage.Name = "btnInstructorManage";
             this.btnInstructorManage.Size = new System.Drawing.Size(837, 63);
             this.btnInstructorManage.TabIndex = 3;
             this.btnInstructorManage.Text = "Instructors";
             this.btnInstructorManage.UseVisualStyleBackColor = true;
+            this.btnInstructorManage.Visible = false;
             this.btnInstructorManage.Click += new System.EventHandler(this.btnInstructorManage_Click);
             // 
             // btnStudentManage
             // 
-            this.btnStudentManage.Location = new System.Drawing.Point(32, 159);
+            this.btnStudentManage.Location = new System.Drawing.Point(32, 228);
             this.btnStudentManage.Name = "btnStudentManage";
             this.btnStudentManage.Size = new System.Drawing.Size(837, 63);
             this.btnStudentManage.TabIndex = 2;
             this.btnStudentManage.Text = "Students";
             this.btnStudentManage.UseVisualStyleBackColor = true;
+            this.btnStudentManage.Visible = false;
             this.btnStudentManage.Click += new System.EventHandler(this.btnStudentManage_Click);
             // 
             // btnDeptManage
             // 
-            this.btnDeptManage.Location = new System.Drawing.Point(32, 90);
+            this.btnDeptManage.Location = new System.Drawing.Point(32, 159);
             this.btnDeptManage.Name = "btnDeptManage";
             this.btnDeptManage.Size = new System.Drawing.Size(837, 63);
             this.btnDeptManage.TabIndex = 1;
             this.btnDeptManage.Text = "Departments";
             this.btnDeptManage.UseVisualStyleBackColor = true;
+            this.btnDeptManage.Visible = false;
             this.btnDeptManage.Click += new System.EventHandler(this.btnDeptManage_Click);
             // 
             // btnCoursesSystem
@@ -332,5 +360,7 @@ namespace ExamSystemUIWinforms
         private System.Windows.Forms.Button btnInstructorManage;
         private System.Windows.Forms.Button btnStudentManage;
         private System.Windows.Forms.Button btnDeptManage;
+        private System.Windows.Forms.Button btnDeptSystem;
+        private System.Windows.Forms.Button btnQuestionsSystem;
     }
 }

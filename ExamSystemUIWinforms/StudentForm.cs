@@ -29,10 +29,6 @@ namespace ExamSystemUIWinforms
         {
             this.WindowState = FormWindowState.Maximized;
             //ReloadForm();
-
-            
-
-
         }
 
         private void LoadForm()
@@ -59,12 +55,22 @@ namespace ExamSystemUIWinforms
 
                 cb.BtnStartExam.Click += (sender, e) =>
                 {
-                    ExamForm exam = new ExamForm();
-                    //this.Hide();
-                    exam.LoadExam(sys.Student, cb.Course);
-                    exam.ShowDialog();
+                    try
+                    {
+                        ExamForm exam = new ExamForm();
+                        //this.Hide();
+                        exam.LoadExam(sys.Student, cb.Course);
+                        exam.ShowDialog();
 
-                    SetStudent(sys.Student);
+                        // 
+                        //SetStudent(sys.Student);
+                    }
+                    catch ( Exception ex)
+                    {
+                        MessageBox.Show($"Cann't Create Exam: Message: {ex.Message}","Exam Fail",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                    
+                    
 
                 };
 
@@ -76,6 +82,12 @@ namespace ExamSystemUIWinforms
 
                 if (trail >= sys.MaxTrial || c.DateEnd > DateTime.Now)
                     btnStartExam.Enabled = false;
+                //int MaxTrail = c.StCrs.Where(s => s.StId.Equals(sys.Student.StId)).FirstOrDefault().MaxGrade;
+                //if (trail >= MaxTrail || c.DateEnd > DateTime.Now)
+                //    btnStartExam.Enabled = false;
+
+
+
 
             });
 
@@ -83,8 +95,20 @@ namespace ExamSystemUIWinforms
             // fill exam grid with data
 
             var data = sys.Exams.Select(e =>
-                new { e.CrsId, e.ExamId, e.TrialNo,
-                    Course = sys.Courses.FirstOrDefault(c => c.CrsId == e.CrsId) }).ToList();
+                new {
+                    Course = sys.Courses.FirstOrDefault(c => c.CrsId == e.CrsId),
+                    e.CrsId,
+                    e.ExamId,
+                    e.TrialNo,
+                }).Select(e =>
+                new {
+                    courseName = e.Course.CrsName,
+                    e.CrsId,
+                    e.ExamId,
+                    e.TrialNo,
+                    Grade = e.Course.StCrs.FirstOrDefault(c => c.CrsId == e.CrsId).Grade,
+                    MaxGrad = e.Course.StCrs.FirstOrDefault(c => c.CrsId == e.CrsId).MaxGrade
+                }).ToList();
 
             gridExams.DataSource = data;
 

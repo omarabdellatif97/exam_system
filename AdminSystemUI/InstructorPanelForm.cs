@@ -90,5 +90,18 @@ namespace ExamSystemUIWinforms
 
             frm.ShowDialog();
         }
+
+        private void btnDeptSystem_Click(object sender, EventArgs e)
+        {
+            DeptManagementForm form = new DeptManagementForm();
+            form.ShowDialog();
+        }
+
+        private void btnQuestionsSystem_Click(object sender, EventArgs e)
+        {
+            QuestionSystemForm from = new QuestionSystemForm();
+            from.ShowDialog();
+
+        }
     }
 }

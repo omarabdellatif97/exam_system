@@ -39,7 +39,7 @@ namespace ExamSystem.Systems
 
         public int MaxTrial { get; internal set; }
 
-        
+
 
 
         #region Old
@@ -125,6 +125,8 @@ namespace ExamSystem.Systems
                     sys.MaxTrial = 5;
 
                     sys.Department = std.Dept;
+
+
                     //sys.Department = context._Context.Departments.Find(sys.student.DeptId);
                     //std.Dept = sys.Department;
                     //context.Complete();
