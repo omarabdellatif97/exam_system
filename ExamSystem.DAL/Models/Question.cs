@@ -9,7 +9,7 @@ namespace ExamSystem.DAL.Models
     {
         public Question()
         {
-            ChoQues = new HashSet<ChoQue>();
+            ChoQues = new ObservableListSource<ChoQue>();
             QuestionInstances = new HashSet<QuestionInstance>();
         }
 
@@ -20,7 +20,7 @@ namespace ExamSystem.DAL.Models
         public int CrsId { get; set; }
 
         public virtual Course Crs { get; set; }
-        public virtual ICollection<ChoQue> ChoQues { get; set; }
+        public virtual ObservableListSource<ChoQue> ChoQues { get; set; }
         public virtual ICollection<QuestionInstance> QuestionInstances { get; set; }
     }
 }

@@ -16,6 +16,12 @@ namespace ExamSystem.DAL
 
                 //var student = unitOfWork.Students.authenticate("test@test.test", "12345678");
                 var courses = unitOfWork.Students.GetCourses(6);
+                foreach (var crs in courses)
+                {
+                    Console.WriteLine(crs.CrsId);
+                }
+
+
                 var exam = unitOfWork.Exams.GetExam(7);
                 foreach (var QI in exam.QuestionInstances)
                 {
@@ -32,19 +38,6 @@ namespace ExamSystem.DAL
                 var std = unitOfWork.Students.authenticate("moamensoroor@gmail.com", "12345678");
                 Console.WriteLine(std.StId);
 
-                //var crs = unitOfWork.Students.GetCourses(6);
-                //Console.WriteLine(grade);
-                //unitOfWork.
-                //var courses = unitOfWork.Courses.GetAll();
-                //var course = unitOfWork.Courses.GetAll().First();
-                //var student = unitOfWork._Context.Students.First();
-                //int examID = unitOfWork.Exams.generateExam(course, student, 5, 0, new TimeSpan(1, 0, 0));
-                //var exams = unitOfWork.Exams.GetAll();
-                //Console.WriteLine(examID);
-                //foreach (var exam in exams)
-                //{
-                //    Console.WriteLine(exam.ExamId);
-                //}
 
             }
         }
