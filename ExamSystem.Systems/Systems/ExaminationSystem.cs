@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using ExamSystem.DAL.Presistence;
+using System.Diagnostics;
 
 namespace ExamSystem.Systems
 {
@@ -17,7 +18,6 @@ namespace ExamSystem.Systems
         private List<ExamQuestion> questions;
 
 
-        private UnitOfWork context;
         private DateTime startTime;
 
         public ExaminationSystem(Student std, Course course)
@@ -46,89 +46,156 @@ namespace ExamSystem.Systems
         public void SubmitAnswers()
         {
             // list of choices that student select from each question
-            var ans = this.questions.Select(q => q.StudentChoices).ToList();
+            var ans = this.questions.SelectMany(q => q.StudentChoices.Select(c =>
+                    new QueInsCho() { QueInsId = q.QueInsId, ChoId = c.ChoId })).ToList();
+
+            if (ans.Count == 0)
+                return;
+
+            using (var context = new UnitOfWork(new ExamContext()))
+            {
+
+                context._Context.QueInsChos.AddRange(ans);
+                
+                context.Complete();
+            };
+
+            using (var context = new UnitOfWork(new ExamContext()))
+            {
+                //context._Context.QueInsChos.AddRange(ans);
+                context.Exams.correctExam(this.Exam);
+                context.Complete();
+            };
+
 
         }
 
 
-        public void Start()
-        {
-
-        }
-
+        #region Old Load Exam without DB
 
         // db 
+        //public static ExaminationSystem LoadExam(Student std, Course course)
+        //{
+        //    int choNO = 5;
+
+        //    ExaminationSystem sys = new ExaminationSystem(std, course);
+        //    Exam ex = new Exam();
+        //    ex.ExamId = 10;
+        //    ex.Date = DateTime.Now;
+        //    ex.Duration = new TimeSpan(0, 1, 0);
+        //    ex.TrialNo = 1;
+        //    ex.StId = std.StId;
+        //    ex.CrsId = course.CrsId;
+        //    ex.Crs = course;
+        //    ex.St = std;
+        //    ex.Date = DateTime.Now;
+
+        //    if ((course?.NumMcq ?? 0) > 0)
+        //        sys.Questions.AddRange(Enumerable.Range(0, course?.NumMcq ?? 0)
+        //                .Select(i => new ExamQuestion()
+        //                {
+
+        //                    QueNo = i + 1,
+        //                    QueInsId = i + 1,
+        //                    QueId = i + 1,
+        //                    QueBody = $"body {i + 1} {"".PadLeft(new Random().Next(10, 100), 'a')}",
+        //                    Grade = 2,
+        //                    QueType = QuestionType.MCQ,
+        //                    ChoNo = choNO,
+        //                    Choices = Enumerable.Range(0, choNO).Select(i =>
+
+        //                        new Choice()
+        //                        {
+        //                            ChoId = i + 1,
+        //                            ChoText = $"Choice {i}",
+        //                            State = new Random().Next(0, 1),
+
+        //                        }
+        //                    ).ToList()
+
+        //                }));
+
+
+        //    if ((course?.NumTorf ?? 0) > 0)
+        //        sys.Questions.AddRange(Enumerable.Range(0, course?.NumTorf ?? 0)
+        //                .Select(i => new ExamQuestion()
+        //                {
+
+        //                    QueNo = i + 1,
+        //                    QueInsId = i + 1,
+        //                    QueId = i + 1,
+        //                    QueBody = $"body {i + 1}",
+        //                    Grade = 2,
+        //                    QueType = QuestionType.TrueFalse,
+        //                    ChoNo = choNO,
+        //                    Choices = Enumerable.Range(0, 2).Reverse().Select(i =>
+
+        //                        new Choice()
+        //                        {
+        //                            ChoId = i + 1,
+        //                            ChoText = i == 1 ? "True" : "False",
+        //                            State = new Random().Next(0, 1),
+
+        //                        }
+        //                    ).ToList()
+
+        //                }));
+
+        //    sys.Exam = ex;
+        //    sys.Department = std.Dept;
+        //    sys.Course = course;
+        //    return sys;
+        //}
+
+        #endregion
+
+
+
         public static ExaminationSystem LoadExam(Student std, Course course)
         {
-            int choNO = 5;
+            
 
             ExaminationSystem sys = new ExaminationSystem(std, course);
-            Exam ex = new Exam();
-            ex.ExamId = 10;
-            ex.Date = DateTime.Now;
-            ex.Duration = new TimeSpan(0, 3, 0);
-            ex.TrialNo = 1;
-            ex.StId = std.StId;
-            ex.CrsId = course.CrsId;
-            ex.Crs = course;
-            ex.St = std;
-            ex.Date = DateTime.Now;
 
-            if ((course?.NumMcq ?? 0) > 0)
-                sys.Questions.AddRange(Enumerable.Range(0, course?.NumMcq ?? 0)
-                        .Select(i => new ExamQuestion()
+            try
+            {
+                UnitOfWork context;
+                Exam ex;
+                using (context = new UnitOfWork(new ExamContext()))
+                {
+                    int id = context.Exams.generateExam(course, std, course?.NumMcq??10, course?.NumTorf??5, course?.ExamDuration ??TimeSpan.FromMinutes(5));
+                    ex = context.Exams.GetExam(id);
+                    sys.Exam = ex;
+                    sys.Department = std.Dept;
+                    sys.Course = course;
+                    sys.Questions = new List<ExamQuestion>(
+                        sys.Exam.QuestionInstances.Select(q => new ExamQuestion()
                         {
-
-                            QueNo = i + 1,
-                            QueInsId = i + 1,
-                            QueId = i + 1,
-                            QueBody = $"body {i + 1} {"".PadLeft(new Random().Next(10, 100), 'a')}",
-                            Grade = 2,
-                            QueType = QuestionType.MCQ,
-                            ChoNo = choNO,
-                            Choices = Enumerable.Range(0, choNO).Select(i =>
-
-                                new Choice()
-                                {
-                                    ChoId = i + 1,
-                                    ChoText = $"Choice {i}",
-                                    State = new Random().Next(0, 1),
-
-                                }
-                            ).ToList()
+                            QueNo = q.QueNo,
+                            QueInsId = q.QueInsId,
+                            QueBody = q.Que.QueBody,
+                            QueId = q.Que.QueId,
+                            Choices = q.Que.ChoQues.Select(c => c.Cho).ToList(),
+                            Grade = q.Que.Grade,
+                            QueType = (QuestionType)q.Que.QueType,
 
                         }));
+                    if (sys.Exam == null || sys.department == null || sys.course == null || sys.Questions.Count < 1)
+                        throw new Exception("Not Valid Exam Creation");
 
+                }
 
-            if ((course?.NumTorf ?? 0) > 0)
-                sys.Questions.AddRange(Enumerable.Range(0, course?.NumTorf ?? 0)
-                        .Select(i => new ExamQuestion()
-                        {
+                
+                return sys;
+            }
+            catch (Exception exp)
+            {
+                Debug.WriteLine(exp.Message);
+                throw exp;
+            }
 
-                            QueNo = i + 1,
-                            QueInsId = i + 1,
-                            QueId = i + 1,
-                            QueBody = $"body {i + 1}",
-                            Grade = 2,
-                            QueType = QuestionType.TrueFalse,
-                            ChoNo = choNO,
-                            Choices = Enumerable.Range(0, 2).Reverse().Select(i =>
-
-                                new Choice()
-                                {
-                                    ChoId = i + 1,
-                                    ChoText = i == 1 ? "True" : "False",
-                                    State = new Random().Next(0, 1),
-
-                                }
-                            ).ToList()
-
-                        }));
-
-            sys.Exam = ex;
-            sys.Department = std.Dept;
-            sys.Course = course;
             return sys;
+            
         }
 
 
@@ -157,6 +224,8 @@ namespace ExamSystem.Systems
 
             return LoadExam(std, stdSys.Courses[0]);
         }
+
+
 
     }
 }

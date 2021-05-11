@@ -62,12 +62,15 @@ namespace ExamSystemUIWinforms
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.tabExams = new System.Windows.Forms.TabPage();
+            this.gridExams = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.tabStudent.SuspendLayout();
             this.tabCourses.SuspendLayout();
             this.flowPanelCourses.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabExams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridExams)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -436,6 +439,7 @@ namespace ExamSystemUIWinforms
             // 
             // tabExams
             // 
+            this.tabExams.Controls.Add(this.gridExams);
             this.tabExams.Location = new System.Drawing.Point(4, 37);
             this.tabExams.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tabExams.Name = "tabExams";
@@ -443,6 +447,21 @@ namespace ExamSystemUIWinforms
             this.tabExams.TabIndex = 2;
             this.tabExams.Text = "Student Exams";
             this.tabExams.UseVisualStyleBackColor = true;
+            // 
+            // gridExams
+            // 
+            this.gridExams.AllowUserToAddRows = false;
+            this.gridExams.AllowUserToDeleteRows = false;
+            this.gridExams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridExams.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridExams.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridExams.Location = new System.Drawing.Point(0, 0);
+            this.gridExams.Name = "gridExams";
+            this.gridExams.ReadOnly = true;
+            this.gridExams.RowHeadersWidth = 51;
+            this.gridExams.RowTemplate.Height = 29;
+            this.gridExams.Size = new System.Drawing.Size(900, 674);
+            this.gridExams.TabIndex = 0;
             // 
             // StudentForm
             // 
@@ -465,6 +484,8 @@ namespace ExamSystemUIWinforms
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabExams.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridExams)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -504,5 +525,6 @@ namespace ExamSystemUIWinforms
         private System.Windows.Forms.Label lblCrsStatus;
         private System.Windows.Forms.Label lblCrsName;
         private System.Windows.Forms.Label lblCrsEndDate;
+        private System.Windows.Forms.DataGridView gridExams;
     }
 }

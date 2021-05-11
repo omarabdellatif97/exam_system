@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace ExamSystemUIWinforms
 {
-    public partial class LoginForm : Form
+    public partial class InstructorLoginForm : Form
     {
-        public LoginForm()
+        public InstructorLoginForm()
         {
             InitializeComponent();
         }
@@ -37,7 +37,7 @@ namespace ExamSystemUIWinforms
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            if(txtName.Text == "" || txtPassword.Text == "")
+            if(txtName.Text == "" ||  txtPassword.Text == "")
             {
                 MessageBox.Show("Not Valid Username Or Password",
                     "Not Valid Login Try",
@@ -46,17 +46,17 @@ namespace ExamSystemUIWinforms
                 return;
             }
 
-            var std = sys.ValidateStudent(txtName.Text, txtPassword.Text);
+            var std = sys.ValidateInstructor(txtName.Text, txtPassword.Text);
 
             if(std != null)
             {
-                // load stduent system
-                var stdSys = new StudentForm();
-                //stdSys.FormClosed += (sender, e) => this.Close();
-                stdSys.FormClosed += (sender, e) => this.Show();
+                //load stduent system
+               var insSys = new InstructorPanelForm();
+                //insSys.FormClosed += (sender, e) => this.Close();
+                insSys.FormClosed += (sender, e) => this.Show();
                 this.Hide();
-                stdSys.Show();
-                stdSys.SetStudent(std);
+                insSys.Show();
+                insSys.SetInstructor(std);
             }
             else
             {

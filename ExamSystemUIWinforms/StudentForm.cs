@@ -20,6 +20,8 @@ namespace ExamSystemUIWinforms
 
         private StudentSystem sys;
 
+        private bool isLoaded = false;
+
         private readonly List<CourseBox> CourseBoxes = new List<CourseBox>();
 
 
@@ -27,11 +29,95 @@ namespace ExamSystemUIWinforms
         {
             this.WindowState = FormWindowState.Maximized;
             //ReloadForm();
+        }
+
+        private void LoadForm()
+        {
+            
+            var data = sys.Exams.Select(e =>
+               new {
+                   Course = sys.Courses.FirstOrDefault(c => c.CrsId == e.CrsId),
+                   e.CrsId,
+                   e.ExamId,
+                   e.TrialNo,
+               }).Select(e =>
+               new {
+                   courseName = e.Course.CrsName,
+                   e.CrsId,
+                   e.ExamId,
+                   e.TrialNo,
+                   Grade = e.Course.StCrs.FirstOrDefault(c => c.CrsId == e.CrsId).Grade,
+                   MaxGrad = e.Course.StCrs.FirstOrDefault(c => c.CrsId == e.CrsId).MaxGrade
+               }).ToList();
+
+            gridExams.DataSource = data;
+            lblStdId.Text = sys.Student.StId.ToString();
+            lblStdName.Text = sys.Student.StName;
+            lblStdEmail.Text = sys.Student.StEmail;
+            lblStdSSN.Text = sys.Student.Ssn.ToString();
+            lblStdBirth.Text = sys.Student.BirthDate.ToShortDateString();
+            lblStdDept.Text = sys.Department.DeptName;
+
+            CourseBoxes.Clear();
+            this.flowPanelCourses.Controls.Clear();
+            sys.Courses.ForEach(c =>
+            {
+                var cb = new CourseBox(c);
+                CourseBoxes.Add(cb);
+                this.flowPanelCourses.Controls.Add(cb.Parent);
+
+                cb.BtnStartExam.Click += (sender, e) =>
+                {
+                    try
+                    {
+                        ExamForm exam = new ExamForm();
+                        //this.Hide();
+                        exam.LoadExam(sys.Student, cb.Course);
+                        exam.ShowDialog();
+
+                        // 
+                        SetStudent(sys.Student);
+                    }
+                    catch ( Exception ex)
+                    {
+                        MessageBox.Show($"Cann't Create Exam: Message: {ex.Message}","Exam Fail",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    }
+                    
+                    
+
+                };
+
+                cb.LblCrsEndDate.Text = $"{c.DateEnd}";
+
+                var trail = sys.Exams.Where(ex => ex.CrsId.Equals(c.CrsId)).OrderByDescending(ex => ex.TrialNo)
+                    .FirstOrDefault(e => e.CrsId.Equals(c.CrsId))?.TrialNo ?? 0;
+                cb.LblCrsStatus.Text = $"{trail}";
+
+                if (trail >= sys.MaxTrial || c.DateEnd > DateTime.Now)
+                    btnStartExam.Enabled = false;
+                //int MaxTrail = c.StCrs.Where(s => s.StId.Equals(sys.Student.StId)).FirstOrDefault().MaxGrade;
+                //if (trail >= MaxTrail || c.DateEnd > DateTime.Now)
+                //    btnStartExam.Enabled = false;
 
 
+
+
+            });
+
+
+            // fill exam grid with data
+
+        }
+
+        internal void SetStudent(Student std)
+        {
+            sys = StudentSystem.LoadStudent(std);
+            LoadForm();
 
 
         }
+
+        #region old
 
         private void ReloadForm()
         {
@@ -51,25 +137,17 @@ namespace ExamSystemUIWinforms
                 this.flowPanelCourses.Controls.Add(cb.Parent);
 
                 cb.BtnStartExam.Click += (sender, e) =>
-                 {
-                     ExamForm exam = new ExamForm();
-                     this.Hide();
-                     exam.Show();
-                     exam.LoadExam(sys.Student, cb.Course);
-                 };
+                {
+                    ExamForm exam = new ExamForm();
+                    //this.Hide();
+                    exam.LoadExam(sys.Student, cb.Course);
+                    exam.ShowDialog();
+
+                };
             });
 
         }
 
-
-
-        internal void SetStudent(Student std)
-        {
-            sys = StudentSystem.LoadStudent(std);
-            ReloadForm();
-
-
-        }
 
         void AddCourse(Course course)
         {
@@ -186,7 +264,7 @@ namespace ExamSystemUIWinforms
             btnStartExam.TabIndex = 9;
             btnStartExam.Text = "Start Exam";
             btnStartExam.UseVisualStyleBackColor = true;
-            
+
             // 
             // lblCrsId
             // 
@@ -242,12 +320,14 @@ namespace ExamSystemUIWinforms
 
             foreach (var item in tableLayoutPanel1.Controls)
             {
-                if(item is Label lb)
+                if (item is Label lb)
                     lb.Padding = new Padding(7);
             }
-                
+
 
             this.flowPanelCourses.Controls.Add(tableLayoutPanel1);
         }
+        #endregion
+
     }
 }

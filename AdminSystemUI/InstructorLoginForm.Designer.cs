@@ -1,7 +1,7 @@
 ﻿
 namespace ExamSystemUIWinforms
 {
-    partial class LoginForm
+    partial class InstructorLoginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -65,16 +65,16 @@ namespace ExamSystemUIWinforms
             // 
             this.txtName.Location = new System.Drawing.Point(154, 48);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(349, 35);
+            this.txtName.Size = new System.Drawing.Size(295, 35);
             this.txtName.TabIndex = 1;
-            this.txtName.Text = "moamensoroor@gmail.com";
+            this.txtName.Text = "moh@gmail.com";
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(154, 97);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(349, 35);
+            this.txtPassword.Size = new System.Drawing.Size(295, 35);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Text = "12345678";
             // 
@@ -110,23 +110,23 @@ namespace ExamSystemUIWinforms
             this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(39, 99);
+            this.groupBox1.Location = new System.Drawing.Point(50, 118);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox1.Size = new System.Drawing.Size(546, 251);
+            this.groupBox1.Size = new System.Drawing.Size(509, 251);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
             // 
-            // LoginForm
+            // InstructorLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(631, 491);
             this.Controls.Add(this.groupBox1);
-            this.Name = "LoginForm";
+            this.Name = "InstructorLoginForm";
             this.Text = "Login Form";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.groupBox1.ResumeLayout(false);

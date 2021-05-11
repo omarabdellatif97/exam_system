@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExamSystem.DAL\ExamSystem.DAL.csproj" />
+    <ProjectReference Include="..\ExamSystem.Systems\ExamSystem.Systems.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DeptManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InstructorLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InstructorPanelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

@@ -1,11 +1,10 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AdminSystemUI
+namespace ExamSystemUIWinforms
 {
     static class Program
     {
@@ -15,11 +14,10 @@ namespace AdminSystemUI
         [STAThread]
         static void Main()
         {
-            //SkinManager.LoadAssembly(typeof(Office2016Theme).Assembly);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DeptManagementForm());
+            Application.Run(new InstructorLoginForm());
         }
     }
 }

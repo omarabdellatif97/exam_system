@@ -6,6 +6,6 @@ namespace ExamSystem.Systems
 {
     public enum QuestionType
     {
-        TrueFalse=0, MCQ = 1
+        TrueFalse=1, MCQ = 0
     }
 }

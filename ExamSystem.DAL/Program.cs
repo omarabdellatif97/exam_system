@@ -31,6 +31,16 @@ namespace ExamSystem.DAL
                         Console.WriteLine(cho.Cho.ChoText);
                     }
                 }
+                //var courses = unitOfWork.Courses.GetAll();
+                //var course = unitOfWork.Courses.GetAll().First();
+                //var student = unitOfWork._Context.Students.First();
+                //int examID = unitOfWork.Exams.generateExam(course, student, 5, 0, new TimeSpan(1, 0, 0));
+                //var exams = unitOfWork.Exams.GetAll();
+                //Console.WriteLine(examID);
+                //foreach (var exam in exams)
+                //{
+                //    Console.WriteLine(exam.ExamId);
+                //}
 
                 unitOfWork.Exams.correctExam(exam);
     

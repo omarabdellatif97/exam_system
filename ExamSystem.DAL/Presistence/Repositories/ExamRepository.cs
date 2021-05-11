@@ -94,6 +94,5 @@ namespace ExamSystem.DAL.Presistence.Repositories
             //return Context.Exams.
             return Context.Set<Exam>().Include(E => E.QuestionInstances).ThenInclude(QI => QI.Que).ThenInclude(Q => Q.ChoQues).ThenInclude(CQ => CQ.Cho).FirstOrDefault(E => E.ExamId == id);
         }
-
     }
 }

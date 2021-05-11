@@ -182,7 +182,7 @@ namespace ExamSystemUIWinforms
             lblCrsStatus.Name = "lblCrsStatus";
             lblCrsStatus.Size = new System.Drawing.Size(61, 28);
             lblCrsStatus.TabIndex = 12;
-            lblCrsStatus.Text = "Trail No 1";
+            lblCrsStatus.Text = "Trail No 0";
             // 
             // lblCrsName
             // 
@@ -213,6 +213,10 @@ namespace ExamSystemUIWinforms
             }
 
             //btnStartExam.Visible = false;
+
+            parent.BackColor = Color.AliceBlue;
+
+            
             
         }
     }
