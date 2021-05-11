@@ -1,5 +1,0 @@
-﻿
-
-write the next line in package manager console to execute the model on EF Core 3.1
-
-Scaffold-DbContext "server=examdatabaseproject.database.windows.net;Database=Exam;User Id=ITI_Exam;Password=db_project2021;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
